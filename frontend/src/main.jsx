@@ -4,27 +4,36 @@ import { Provider } from 'react-redux';
 import App from './App';
 import './index.css';
 import configureStore from './store';
-import csrfFetch, { restoreCSRF } from './store/csrf';
-import * as sessionActions from './store/session';
+import {restoreSession } from './store/csrf';
+import * as sessionActions from './store/reducers/session';
 
 
-const store = configureStore();
+const initializeApp = () => {
+  let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  let initialState = {};
 
-if (import.meta.env.MODE !== 'production') {
-  restoreCSRF();
-  window.csrfFetch = csrfFetch;
-  window.sessionActions = sessionActions;
-  window.store = store;
-  // window.createUser = createUser;
-  // window.loginUser = loginUser;
-  // window.logoutUser = logoutUser;
+  if (currentUser) {
+    initialState = {
+      session: {
+        [currentUser.id]: currentUser
+      }
+    }
+  }
+  const store = configureStore();
+
+  if (import.meta.env.MODE !== 'production') {
+    window.store = store;
+    window.sessionActions = sessionActions;
+  }
+
+
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>
+  );
 }
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
-);
+restoreSession().then(initializeApp)

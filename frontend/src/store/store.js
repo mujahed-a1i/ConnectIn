@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import sessionReducer from './session';
+import sessionReducer from './reducers/session';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -21,3 +21,6 @@ const configureStore = (preloadedState = {}) => {
 };
 
 export default configureStore;
+
+
+  

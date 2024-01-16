@@ -1,0 +1,41 @@
+.splashNavBar {
+
+  display: flex;
+  justify-content: space-between;
+  
+  width: 1150px;
+  height: 100px;
+  padding: 25px 0px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 30px;
+    color: red;
+    text-decoration: none;
+}
+
+.titleConnect {
+  color: rgb(11, 101, 194);
+}
+.titleIfy {
+  color: white;
+  background-color: rgb(11, 101, 194);
+  border-radius: 4px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.navButtons {
+  text-decoration: none;
+  padding: 10px;
+  border-style: solid;
+  border-color: rgb(11, 101, 194);
+  border-radius: 4px;
+}
+
+

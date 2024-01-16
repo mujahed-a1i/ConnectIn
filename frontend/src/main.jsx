@@ -8,6 +8,7 @@ import {restoreSession } from './store/csrf';
 import * as sessionActions from './store/reducers/session';
 
 
+
 const initializeApp = () => {
   let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
   let initialState = {};
@@ -20,10 +21,12 @@ const initializeApp = () => {
     }
   }
   const store = configureStore();
+  
 
   if (import.meta.env.MODE !== 'production') {
     window.store = store;
     window.sessionActions = sessionActions;
+
   }
 
 

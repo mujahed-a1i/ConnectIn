@@ -20,19 +20,6 @@ const removeUser = (userId) => {
   };
 };
 
-// const storeCSRFToken = (response) => {
-//   const csrfToken = response.headers.get("X-CSRF-Token");
-//   if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
-// };
-
-// export const restoreSession = () => async (dispatch) => {
-//   const response = await csrfFetch("/api/session");
-//   storeCSRFToken(response);
-//   const data = await response.json();
-//   dispatch(setUser(data.user));
-//   return response;
-// };
-
 // Thunk Action Creators
 export const loginUser = user => async dispatch => {
   const response = await csrfFetch("/api/session", {
@@ -45,22 +32,14 @@ export const loginUser = user => async dispatch => {
   return response;
 };
 
-// export const logoutUser = (userId) => async dispatch => {
-//   const response = await csrfFetch(`/api/session/`, {
-//     method: "DELETE",
-//   });
-//   sessionStorage.setItem('currentUser', null);
-//   dispatch(removeUser(userId));
-//   return response;
-// };
-
-export const logoutUser = userId => async dispatch => {
+export const logoutUser = () => async dispatch => {
     let res = await csrfFetch('/api/session', {
         method: "DELETE"
     })
     // sessionStorage.removeItem("currentUser")
     sessionStorage.setItem('currentUser', null);
-    dispatch(removeUser(userId));
+    dispatch(removeUser());
+    return res;
 }
 
 export const createUser = (user) => async dispatch => {

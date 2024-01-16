@@ -1,7 +1,7 @@
-import NavigationBar from "../navigationBar/navigationBar"
-import LoginForm from "../session/loginForm"
-import "./splashPage.css"
-import linkedIn from "../assests/linkedinSplashPic.svg" 
+import NavigationBar from "../navigationBar/navigationBar";
+import LoginForm from "../session/loginForm";
+import "./splashPage.css";
+import linkedIn from "../assests/linkedinSplashPic.svg" ;
 
 export default function SplashPage() {
 

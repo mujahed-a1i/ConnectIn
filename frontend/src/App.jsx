@@ -1,6 +1,7 @@
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import SplashPage from './components/splash/splashPage';
 import SignUp from './components/session/signUp/signUp';
+import FeedPage from './components/feed/feedPage';
 
 const router = createBrowserRouter([
   { path: "/", 
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
         path: 'signup',
         element: <SignUp />,
       },
+      {
+        path: 'feed',
+        element: <FeedPage />
+      }
       // {
       //   path: "*",
       //   element: <SplashPage/>
@@ -30,7 +35,7 @@ function App() {
       <RouterProvider router={router} />
       {/* <h1> Connectify </h1>; */}
     </div>
-  )
+  );
 }
 
 export default App;

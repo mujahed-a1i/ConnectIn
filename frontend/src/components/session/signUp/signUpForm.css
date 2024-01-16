@@ -1,0 +1,29 @@
+.signUpButton {
+  font-family: system-ui;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-top: 15px;
+  height: 50px;
+  width: 410px;
+  background-color: rgb(11, 101, 194);
+  border: none;
+  border-radius: 24px;
+}
+
+.signUpButton:hover {
+  background-color: rgb(0, 65, 130);
+}
+
+.signUpForm {
+ margin: 10px 10px;
+}
+
+.signUpForm:first-child {
+  margin-top: 1rem;
+}
+
+.signUpFormWrapper {
+  width: 400px;
+  background-color: white;
+}

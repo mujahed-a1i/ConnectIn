@@ -1,6 +1,6 @@
 .homePage {
   
-  position: sticky;
+  position: absolute;
   width: 1000px; 
   /* top: 0;
   bottom: 0; */
@@ -32,3 +32,4 @@
   width: 700px;
   height: 500px;
 }
+

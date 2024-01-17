@@ -37,7 +37,7 @@ module Connectify
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
-    key: '_teatime_session',
+    key: '_connectIn_session',
     same_site: :lax, 
     secure: Rails.env.production?
   end

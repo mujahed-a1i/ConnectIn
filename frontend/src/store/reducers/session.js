@@ -38,7 +38,7 @@ export const logoutUser = () => async dispatch => {
         method: "DELETE"
     })
     // sessionStorage.removeItem("currentUser")
-    sessionStorage.setItem('currentUser', null);
+    sessionStorage.setItem('currentUser', JSON.stringify(null));
     dispatch(removeUser());
     return res;
 }
@@ -62,7 +62,11 @@ export const createUser = (user) => async dispatch => {
 
 
 // Reducer
-const initialState = { user: null };
+
+const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
+const initialUser = storedUser ? storedUser : null;
+const initialState = { user: initialUser };
+
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {

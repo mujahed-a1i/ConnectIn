@@ -6,14 +6,14 @@ import * as sessionActions from '../../../store/reducers/session';
 
 function SignUpForm() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
+  // const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const [visible, setVisible] = useState(false);
 
-  if (sessionUser) return <Navigate to="/feed" replace={true} />;
+  // if (sessionUser) return <Navigate to="/feed" replace={true} />;
   
 
   const handleSubmit = (e) => {

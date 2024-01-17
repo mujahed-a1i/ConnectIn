@@ -1,26 +1,30 @@
 import "./loginForm.css"
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
-
-
+import { Navigate, useNavigate } from 'react-router-dom';
 import * as sessionActions from '../../store/reducers/session';
 
 
 function LoginForm() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
+  // const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate()
 
+  
 
-  if (sessionUser) return <Navigate to="/feed" replace={true} />
+  // if (sessionUser) return <Navigate to="/feed" replace={true} />
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.loginUser({ credential, password }))
+      .then(() => {
+        navigate('/feed'); // Moved inside the .then() block
+      }
+      )
       .catch(async (res) => {
         let data;
         try {
@@ -33,7 +37,13 @@ function LoginForm() {
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
       });
-      
+  }
+
+  const handleDemo = (e) => {
+    e.preventDefault()
+    setCredential('demo-lition');
+    setPassword('password');
+    // navigate("/feed");
   }
 
   // const handleSubmit = async (e) => {
@@ -56,6 +66,7 @@ function LoginForm() {
   //     if (data?.errors) setErrors(data.errors);
   //     else if (data) setErrors([data]);
   //     else setErrors([res.statusText]);
+  //     // return setErrors;
   //   }
   // }
 
@@ -65,7 +76,7 @@ function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
@@ -96,8 +107,8 @@ function LoginForm() {
         </label>
       </div>
       
-      <button className="loginButton" type="submit">Sign In</button>
-      <button className="loginButton" type="submit">Demo User</button>
+      <button className="loginButton" type="submit" onClick={handleSubmit}>Sign In</button>
+      <button className="loginButton" onClick={handleDemo}>Demo User</button>
     </form>
   );
 }

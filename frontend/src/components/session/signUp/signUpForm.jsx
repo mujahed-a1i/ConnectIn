@@ -84,7 +84,7 @@ function SignUpForm() {
         
         <div className="signUpForm">
           <label className="signUpPlaceHolder">
-            <p>Password</p>
+            <p>Password (6+ characters)</p>
             <input
               type= {visible ? "text": "password"}
               value={password}

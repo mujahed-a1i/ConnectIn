@@ -6,6 +6,7 @@ import './index.css';
 import configureStore from './store';
 import {restoreSession } from './store/csrf';
 import * as sessionActions from './store/reducers/session';
+import * as postActions from './store/reducers/post';
 
 
 
@@ -26,6 +27,7 @@ const initializeApp = () => {
   if (import.meta.env.MODE !== 'production') {
     window.store = store;
     window.sessionActions = sessionActions;
+    window.postActions = postActions;
 
   }
 

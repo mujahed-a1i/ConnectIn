@@ -15,9 +15,17 @@
 }
 
 .placeHolder > input {
-
+  border-width: 1px;
+  border-radius: 4px;
   height: 50px;
   width: 410px;
+  
+}
+
+.placeHolder>input:hover {
+  /* transition: 1s; */
+  border-width: 2px;
+  background-color: rgba(227, 226, 226, 0.716);
 }
 
 .loginButton {

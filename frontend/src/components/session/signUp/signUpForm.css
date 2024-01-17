@@ -27,3 +27,21 @@
   width: 400px;
   background-color: white;
 }
+
+.signUpPlaceHolder * {
+  margin-bottom: 8px;
+}
+
+.signUpPlaceHolder > input {
+  border-radius: 4px;
+  width: 352px;
+  height: 32px;
+}
+.signUpPlaceHolder>input:hover{
+  background-color: rgba(227, 226, 226, 0.716);
+}
+.signUpPlaceHolder > p {
+  font-family: system-ui;
+    font-size: 14px;
+    font-weight: 600;
+}

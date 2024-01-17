@@ -17,47 +17,47 @@ function LoginForm() {
 
 
   if (sessionUser) return <Navigate to="/feed" replace={true} />
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setErrors([]);
-  //   return dispatch(sessionActions.loginUser({ credential, password }))
-  //     .catch(async (res) => {
-  //       let data;
-  //       try {
-  //         // .clone() essentially allows you to read the response body twice
-  //         data = await res.clone().json();
-  //       } catch {
-  //         data = await res.text(); // Will hit this case if the server is down
-  //       }
-  //       if (data?.errors) setErrors(data.errors);
-  //       else if (data) setErrors([data]);
-  //       else setErrors([res.statusText]);
-  //     });
-      
-  // }
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    
-    try {
-      // Dispatch the login action
-      await dispatch(sessionActions.loginUser({ credential, password }));
+    return dispatch(sessionActions.loginUser({ credential, password }))
+      .catch(async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if the server is down
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
       
-      // If login is successful, navigate to the desired page
-      navigate('/feed'); // Replace '/desired-page' with the actual path you want to navigate to
-    } catch (res) {
-      let data;
-      try {
-        data = await res.clone().json();
-      } catch {
-        data = await res.text();
-      }
-      if (data?.errors) setErrors(data.errors);
-      else if (data) setErrors([data]);
-      else setErrors([res.statusText]);
-    }
   }
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setErrors([]);
+    
+  //   try {
+  //     // Dispatch the login action
+  //     await dispatch(sessionActions.loginUser({ credential, password }));
+      
+  //     // If login is successful, navigate to the desired page
+  //     navigate('/feed'); // Replace '/desired-page' with the actual path you want to navigate to
+  //   } catch (res) {
+  //     let data;
+  //     try {
+  //       data = await res.clone().json();
+  //     } catch {
+  //       data = await res.text();
+  //     }
+  //     if (data?.errors) setErrors(data.errors);
+  //     else if (data) setErrors([data]);
+  //     else setErrors([res.statusText]);
+  //   }
+  // }
 
   const handleShowPassword = (e) => {
     e.preventDefault()
@@ -97,6 +97,7 @@ function LoginForm() {
       </div>
       
       <button className="loginButton" type="submit">Sign In</button>
+      <button className="loginButton" type="submit">Demo User</button>
     </form>
   );
 }

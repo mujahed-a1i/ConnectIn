@@ -12,14 +12,14 @@ import * as postActions from './store/reducers/post';
 
 const initializeApp = () => {
   let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-  let initialState = {};
+  // let initialState = {};
 
   if (currentUser) {
-    initialState = {
-      session: {
-        [currentUser.id]: currentUser
-      }
-    }
+    // initialState = {
+    //   session: {
+    //     [currentUser.id]: currentUser
+    //   }
+    // }
   }
   const store = configureStore();
   

@@ -11,7 +11,6 @@ export default function NavigationBar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let currentUser = useSelector((state) => state.session.user);
-  console.log(currentUser);
   
   const handleLogout = (e) => {
     e.preventDefault();

@@ -1,7 +1,7 @@
 import "./signUpForm.css";
-import { Navigate} from 'react-router-dom';
+// import { Navigate} from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../../store/reducers/session';
 
 function SignUpForm() {

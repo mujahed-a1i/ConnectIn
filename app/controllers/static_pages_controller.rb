@@ -4,3 +4,5 @@ class StaticPagesController < ActionController::Base
   end
 end
 
+
+

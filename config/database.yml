@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: connectify_production
   username: connectify
   password: <%= ENV["CONNECTIFY_DATABASE_PASSWORD"] %>

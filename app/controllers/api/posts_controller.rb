@@ -31,7 +31,7 @@ class Api::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      render: show
+      render :show
     else 
       render json: {errors: @user.errors.full_messages}  , status: 422
     end
@@ -40,7 +40,7 @@ class Api::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-       render: index
+       render :index
     else
       render plain: "Post cant be deleted"
     end

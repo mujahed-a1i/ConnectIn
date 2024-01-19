@@ -1,0 +1,36 @@
+.feedPostModal {
+  margin-top: 20px;
+  border-style: none;
+  border-radius: 10px;
+  height: 400px;
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+}
+
+.feedPostModal::backdrop {
+  background-color: black;
+}
+
+.feedPostUserInfo {
+    display: flex;
+    flex-direction: row;
+        margin: auto;
+}
+
+.feedPostModalTextBox {
+  margin-top: 20px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 2px;
+  width: 380px;
+  resize: none;
+  height: 300px;
+}
+.feedPostModalTextBox:focus{
+  outline: none;
+}
+
+.feedPostModalButton {
+  margin-top: 100px;
+}
+

@@ -40,45 +40,25 @@ function LoginForm() {
   }
 
   const handleDemo = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setCredential('demo-lition');
     setPassword('password');
     // navigate("/feed");
-  }
+  };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setErrors([]);
-    
-  //   try {
-  //     // Dispatch the login action
-  //     await dispatch(sessionActions.loginUser({ credential, password }));
-      
-  //     // If login is successful, navigate to the desired page
-  //     navigate('/feed'); // Replace '/desired-page' with the actual path you want to navigate to
-  //   } catch (res) {
-  //     let data;
-  //     try {
-  //       data = await res.clone().json();
-  //     } catch {
-  //       data = await res.text();
-  //     }
-  //     if (data?.errors) setErrors(data.errors);
-  //     else if (data) setErrors([data]);
-  //     else setErrors([res.statusText]);
-  //     // return setErrors;
-  //   }
-  // }
+  
 
   const handleShowPassword = (e) => {
-    e.preventDefault()
-    setVisible(!visible)
-  }
+    e.preventDefault();
+    setVisible(!visible);
+  };
 
   return (
     <form>
       <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
+        {errors.map((error, index) => (
+          <li key={index}>{error.message}</li>
+        ))}
       </ul>
 
       <div className="loginForm">

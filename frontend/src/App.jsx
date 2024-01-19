@@ -1,14 +1,33 @@
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import SplashPage from './components/splash/splashPage';
 import SignUp from './components/session/signUp/signUp';
 import FeedPage from './components/feed/feedPage';
+import { restoreSession } from './store/reducers/session';
+
+function Layout() {
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    dispatch(restoreSession()).then(() => {
+      setIsLoaded(true);
+    });
+  }, [dispatch]);
+  return (
+    <>
+      {isLoaded && <Outlet />}
+    </>
+  );
+}
 
 const router = createBrowserRouter([
-  { path: "/", 
-    element: <Outlet />,
+  { 
+    element: <Layout />,
     children: [
       {
-        index: true,
+        path: '/',
         element: <SplashPage />,
       },
       {
@@ -16,9 +35,9 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: 'feed',
+        path: ':feed',
         element: <FeedPage />,
-      }
+      },
       // {
       //   path: "*",
       //   element: <SplashPage/>

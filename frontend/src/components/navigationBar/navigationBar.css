@@ -47,21 +47,38 @@ ul {
 }
 
 /* Logged In Navbar */
+
+
+
 .feedNavBar {
   background-color: white;
   display: flex;
   justify-content: space-between;
-
-  width: 1150px;
+  width: 100vw;
   height: 50px;
-  padding: 25px 0px;
-  margin: 0 auto;
+}
+.feedTitle {
+  width: 10px;
+  margin-left: 15%;
+  text-decoration: none;
+  margin: auto;
+}
+
+.feedNavButtons {
+  margin-right: 10%;
+  margin: auto;
 }
 
 .feedTitleIn {
-  padding: 3px;
-  font-size: 35px;
-  font-weight: 200;
+  font-family: system-ui;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  padding-left: 3px;
+  font-size: 30px;
+  font-weight: 700;
+  width: 28px;
+  height: 30px;
   color: white;
   background-color: rgb(11, 101, 194);
   border-radius: 4px;

@@ -16,7 +16,7 @@ export default function NavigationBar() {
     e.preventDefault();
     dispatch(sessionActions.logoutUser());
     navigate('/');
-  }
+  };
 
 
   return (
@@ -39,7 +39,7 @@ export default function NavigationBar() {
       }
       {currentUser && <nav className='feedNavBar'>
         <Link className="feedTitle" to="/feed" >
-          <span className='feedTitleIn'>in</span>
+          <p className='feedTitleIn'>in</p>
         </Link>
       
         

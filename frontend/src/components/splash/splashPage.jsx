@@ -2,7 +2,7 @@ import NavigationBar from "../navigationBar/navigationBar";
 import LoginForm from "../session/loginForm";
 import "./splashPage.css";
 import linkedIn from "../assests/linkedinSplashPic.svg" ;
-import {Navigate} from 'react-router-dom'
+import {Navigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default function SplashPage() {
@@ -10,7 +10,7 @@ export default function SplashPage() {
   if (currentUser !== null) {
     return (
       <Navigate to="/feed" replace={true} />
-    ) 
+    );
   }
   return (
     <div className="homePage">
@@ -25,14 +25,9 @@ export default function SplashPage() {
         </div>
         <img className="linkedin" src={linkedIn} alt="splashPhoto" />
       </div>
-      {/* <div className="loginWrapper">
-        <div className="sloganWrapper">
-          <h1 className='slogan'>Welcome to your professional community</h1>
-        </div>
-        <br /><br />
-        <LoginForm />
-      </div> */}
+    
+
     </div>
-  )
+  );
 
 }

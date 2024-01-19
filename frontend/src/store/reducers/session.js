@@ -1,4 +1,5 @@
-import csrfFetch from "../csrf";
+
+import csrfFetch , {storeCSRFToken} from "../csrf";
 
 // Action Types
 const SET_USER = "session/setUser";
@@ -16,8 +17,22 @@ const setUser = (user) => {
 const removeUser = (userId) => {  
   return {
     type: REMOVE_USER,
-    userId
+    userId,
   };
+};
+
+
+// export const storeCSRFToken = response => {
+//   const csrfToken = response.headers.get("X-CSRF-Token");
+//   if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+// };
+
+export const restoreSession = () => async dispatch => {
+  const response = await csrfFetch("/api/session");
+  storeCSRFToken(response);
+  const data = await response.json();
+  dispatch(setUser(data.user));
+  return response;
 };
 
 // Thunk Action Creators
@@ -34,14 +49,13 @@ export const loginUser = user => async dispatch => {
 
 
 export const logoutUser = () => async dispatch => {
-    let res = await csrfFetch('/api/session', {
-        method: "DELETE"
-    })
-    // sessionStorage.removeItem("currentUser")
-    sessionStorage.setItem('currentUser', JSON.stringify(null));
-    dispatch(removeUser());
-    return res;
-}
+  let res = await csrfFetch('/api/session', {
+    method: "DELETE",
+  });
+  sessionStorage.setItem('currentUser', JSON.stringify(null));
+  dispatch(removeUser());
+  return res;
+};
 
 export const createUser = (user) => async dispatch => {
   // const { username, email, password } = user;
@@ -63,36 +77,22 @@ export const createUser = (user) => async dispatch => {
 
 // Reducer
 
-const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
-const initialUser = storedUser ? storedUser : null;
-const initialState = { user: initialUser };
-
+  const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  const initialUser = storedUser ? storedUser : null;
+  const initialState = { user: initialUser };
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USER:
-      return { ...state, user: action.user };
-    case REMOVE_USER:
-      return { ...state, user: null };
-    default:
-      return state;
+  case SET_USER:
+    return { ...state, user: action.user };
+  case REMOVE_USER:
+    return { ...state, user: null };
+  default:
+    return state;
   }
 };
 
-// const sessionReducer = ( state = {}, action ) => {
-//   const nextState = { ...state };
 
-//   switch(action.type) {
-//     case SET_USER:
-//         nextState[action.user.id] = action.user;
-//         return nextState;
-//     case REMOVE_USER:
-//         delete nextState[action.userId];
-//         return nextState;
-//     default:
-//         return state;
-//   }
-// };
 
 
 export default sessionReducer;

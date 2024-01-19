@@ -1,42 +1,60 @@
 import csrfFetch from "../csrf";
 
 // Action Types
-const SET_POST = "user/setPost`";
+const RECEIVE_POST = "user/receivePost";
+const RECEIVE_POSTS = "user/receivePosts"
 const REMOVE_POST = "user/removePost";
 
 // Action Creater
-const setPost = (post) => {
+const receivePost = (post) => {
   return {
-    type: SET_POST,
+    type: RECEIVE_POST,
     post,
-  }
-}
+  };
+};
+
+const receivePosts = (posts) => {
+  return {
+    type: RECEIVE_POSTS,
+    posts,
+  };
+};
 
 // Thunk Action Creator 
-export const createPost = (post) => async dispatch => {
+export const createPost = (newPost) => async dispatch => {
   const response = await csrfFetch("/api/posts", {
     method: "POST",
-    body: JSON.stringify(post),
+    body: JSON.stringify(newPost),
   });
 
-  const data = await response.json();
-  dispatch(setPost(data.post));
+  const post = await response.json();
+  dispatch(receivePost(post));
   return response;
-}
+};
+
+export const fetchAllPosts = () => async dispatch => {
+  const response = await csrfFetch("/api/posts");
+  const posts = await response.json();
+  dispatch(receivePosts(posts));
+  // return response;
+};
 
 
 
 const postReducer = (state = {}, action) => {
-  const newState = {...state}
+  Object.freeze(state);
+  const newState = {...state};
   switch (action.type) {
-    case SET_POST:
-      newState[action.post.id] = action.post;
-      return newState;
-    case REMOVE_POST:
-      delete newState[action.postId];
-      return newState;
-    default:
-      return state;
+  case RECEIVE_POST:
+    newState[action.post.id] = action.post;
+    return newState;
+  case RECEIVE_POSTS:
+    return {...newState, ...action.posts};
+  case REMOVE_POST:
+    delete newState[action.postId];
+    return newState;
+  default:
+    return state;
   }
 };
 

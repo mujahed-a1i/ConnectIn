@@ -32,3 +32,12 @@
     transform: translateX(-50%);
 }
 
+.postCRUDWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.feedPostIndexWrappper {
+   background-color: red;
+}

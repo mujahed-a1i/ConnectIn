@@ -6,7 +6,7 @@ import modalsReducer from './reducers/modals';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  post: postReducer,
+  posts: postReducer,
   modals: modalsReducer,
 });
 

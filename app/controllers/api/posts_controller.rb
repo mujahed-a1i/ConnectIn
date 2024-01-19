@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(description: params[:description])
     @post.user_id = current_user.id
     if @post.save
       render :show
@@ -10,13 +10,13 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-    if params[user_id]
-      @posts = Post.where(user_id: params[:user_id])
-    else 
+    # if params[:user_id]
+    #   @posts = Post.where(user_id: params[:user_id])
+    #   render :index
+    # else 
       @posts = Post.all
-    end
-
-    render :index
+      render :index
+    # end    
   end
 
   def show

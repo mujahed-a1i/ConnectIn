@@ -6,6 +6,7 @@ import SignUp from './components/session/signUp/signUp';
 import FeedPage from './components/feed/feedPage';
 import { restoreSession } from './store/reducers/session';
 
+
 function Layout() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);

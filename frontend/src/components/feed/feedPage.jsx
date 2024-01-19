@@ -14,7 +14,7 @@ export default function FeedPage() {
 
   useEffect(() => {
     if (!currentUser) {
-      navigate("/")
+      navigate("/");
     }
 
     // Other actions based on the changes in currentUser or type
@@ -32,12 +32,16 @@ export default function FeedPage() {
       </div>
 
 
-      <div>
+      <div className="postCRUDWrapper">
         <div className="feedCreatePostBoxWrapper">
           <CreatePostBox />
         </div>
-       
+        <div className="feedPostIndexWrappper"> 
+          <p>Post Index</p>
+        </div>
+        <div className="feedPostIndex"> 
         
+        </div>
       </div>
 
     </div>

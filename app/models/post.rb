@@ -9,7 +9,7 @@
 #  updated_at  :datetime         not null
 #
 class Post < ApplicationRecord
-  validates :description, presence: true
+  validates :description, presence: true, length: { maximum: 3000 }
   belongs_to :user
 
 end

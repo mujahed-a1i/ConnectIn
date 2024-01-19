@@ -30,7 +30,6 @@ export default csrfFetch;
 export function storeCSRFToken(response) {
   const csrfToken = response.headers.get("X-CSRF-Token");
   if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
-  console.log(csrfToken)
 }
 
 export async function restoreCSRF() {

@@ -76,12 +76,9 @@ export const createUser = (user) => async dispatch => {
 
 
 // Reducer
+ 
 
-  const storedUser = JSON.parse(sessionStorage.getItem("currentUser"));
-  const initialUser = storedUser ? storedUser : null;
-  const initialState = { user: initialUser };
-
-const sessionReducer = (state = initialState, action) => {
+const sessionReducer = (state = {user: null}, action) => {
   switch (action.type) {
   case SET_USER:
     return { ...state, user: action.user };

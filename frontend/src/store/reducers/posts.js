@@ -27,7 +27,7 @@ export const createPost = (newPost) => async dispatch => {
     body: JSON.stringify(newPost),
   });
 
-  const post = await response.json();
+  const {post} = await response.json();
   dispatch(receivePost(post));
   return response;
 };
@@ -41,7 +41,7 @@ export const fetchAllPosts = () => async dispatch => {
 
 
 
-const postReducer = (state = {}, action) => {
+const postsReducer = (state = {}, action) => {
   Object.freeze(state);
   const newState = {...state};
   switch (action.type) {
@@ -58,4 +58,4 @@ const postReducer = (state = {}, action) => {
   }
 };
 
-export default postReducer;
+export default postsReducer;

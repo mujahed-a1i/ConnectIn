@@ -1,7 +1,7 @@
 .createPostBarWrapper {
   
   background-color: white;
-  width: 500px;
+  width: 550px;
   height: 100px;
   margin-top: 10px;
   display: flex;
@@ -13,7 +13,8 @@
 }
 
 .feedUserIcon {
-  
+  height: 40px;
+  width: 40px;
   margin-top: 25px;
   margin-left: 30px;
   margin-right: 8px;
@@ -27,7 +28,7 @@
 
   margin-top: 20px;
   height: 50px;
-  width: 400px;
+  width: 450px;
   border-radius: 30px;
   background-color: rgb(255, 255, 255);
   text-align: left;

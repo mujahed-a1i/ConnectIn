@@ -10,6 +10,8 @@ function SignUpForm() {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [errors, setErrors] = useState([]);
   const [visible, setVisible] = useState(false);
 
@@ -26,6 +28,8 @@ function SignUpForm() {
       email: email,
       username: username,
       password: password,
+      firstName: firstName,
+      lastName: lastName,
     };
     return dispatch(sessionActions.createUser(user))
       .catch(async (res) => {
@@ -93,6 +97,30 @@ function SignUpForm() {
             />
             <button className="passwordHidden" onClick={handleShowPassword}>{visible? "Hide": "Show"}</button>
             
+          </label>
+        </div>
+
+        <div className="signUpForm">
+          <label className="signUpPlaceHolder">
+            <p>First Name</p>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+
+        <div className="signUpForm">
+          <label className="signUpPlaceHolder">
+            <p>Last Name</p>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
           </label>
         </div>
       </div>

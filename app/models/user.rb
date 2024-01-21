@@ -9,6 +9,8 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  first_name      :string           not null
+#  last_name       :string           not null
 #
 class User < ApplicationRecord
   before_validation :ensure_session_token
@@ -24,6 +26,7 @@ class User < ApplicationRecord
     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 6..40 }, allow_nil: true
+  validates :first_name, :last_name, presence: true
 
   has_many :posts, dependent: :destroy
 
@@ -44,6 +47,12 @@ class User < ApplicationRecord
         token = SecureRandom.urlsafe_base64
         return token unless User.exists?(session_token: token)
     end
+  #   self.session_token = SecureRandom.urlsafe_base64(16)
+
+  # # Ensure the generated session_token is unique
+  # while User.exists?(session_token: self.session_token)
+  #   self.session_token = SecureRandom.urlsafe_base64(16)
+  # end
   end
 
   def self.find_by_credentials(credential, password)

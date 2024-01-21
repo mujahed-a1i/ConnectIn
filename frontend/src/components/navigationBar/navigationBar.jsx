@@ -1,59 +1,50 @@
 import './navigationBar.css';
 import { Link} from "react-router-dom";
-import {useDispatch} from 'react-redux';
-import {useNavigate} from 'react-router-dom'
-import * as sessionActions from '../../store/reducers/session';
 import { useSelector } from 'react-redux';
+import FeedProfileButton from "./feedButtons/feedProfileButton"
 
 
 
 export default function NavigationBar() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   let currentUser = useSelector((state) => state.session.user);
   
-  const handleLogout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.logoutUser());
-    navigate('/');
-  };
 
 
-  return (
-    <div>
-      {!currentUser && <nav className='splashNavBar'>
+  if (!currentUser) {
+    return (
+      <nav className='splashNavBar'>
         <Link className="splashTitle" to="/" >
           <span className='splashTitleConnect'>Connect</span><span className='splashTitleIn'>in</span>
         </Link>
       
         
-        <ul className ='splashNavButtons'>
-          <li>
-            <Link className='splashNavButtons' to='/signup'>Join Now</Link>
+        <ul className='splashNavButtonWrapper'>
+          <li className='splashSignUpButton'>
+            <Link  to='/signup'>Join Now</Link>
           </li>
-          <li>
-            <Link className="splashNavButtons" to='/'>Sign In</Link>
+          <li className='splashSignInButton'>
+            <Link  to='/'>Sign In</Link>
           </li>
         </ul>
       </nav>
-      }
-      {currentUser && <nav className='feedNavBar'>
-        <Link className="feedTitle" to="/feed" >
-          <p className='feedTitleIn'>in</p>
-        </Link>
+    );
+  }
+
+  if (currentUser) {
+    return (
+      <nav className='feedNavBar'>
+        <Link className="feedTitle" to="/feed" > in </Link>
       
-        
         <ul className ='feedNavButtons'>
-          <li>
-            <Link to='/' onClick={handleLogout}>
-              <button className="feedNavButtons">
-                Logout
-              </button>
-            </Link>
-          </li>
+          
+          <div className='FeedProfileButtonWrapper'>
+            <FeedProfileButton />
+          </div>
+          
         </ul>
       </nav>
-      }
-    </div>
-  );
+    );
+  }
+
 }

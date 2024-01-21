@@ -5,6 +5,7 @@ import NavigationBar from "../navigationBar/navigationBar";
 import { useSelector } from 'react-redux';
 import CreatePostBox from "./creatPostBox";
 import Modal from "./modal";
+import PostIndex from "./post/postIndex";
 
 
 export default function FeedPage() {
@@ -27,23 +28,19 @@ export default function FeedPage() {
       {type && <div className="createPostBoxModal"> 
         <Modal /> 
       </div> }
+     
       <div className="feedNavigationWrapper">
         <NavigationBar/>
       </div>
-
+      
 
       <div className="postCRUDWrapper">
         <div className="feedCreatePostBoxWrapper">
           <CreatePostBox />
-        </div>
-        <div className="feedPostIndexWrappper"> 
-          <p>Post Index</p>
-        </div>
-        <div className="feedPostIndex"> 
-        
+          <br/><br />
+          <PostIndex />
         </div>
       </div>
-
     </div>
   );
 }

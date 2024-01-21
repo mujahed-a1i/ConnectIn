@@ -1,0 +1,31 @@
+.postWrapper {
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(18, 7, 212);
+  width: 550px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+
+.feedPostUserInfo {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+
+.feedPostAuthorName {
+  margin-left: 8px;
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.feedPostDescription {
+  margin-bottom: 10px;
+  padding: 0 10px;
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 400;  
+  line-height: 20px;
+}

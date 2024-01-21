@@ -1,0 +1,73 @@
+.feedUserIconWrapper {
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap; */
+  margin-top: 30px;
+}
+.feedUserIcon2 {
+  margin-top: 25px;
+  height: 25px;
+  width: 25px;
+  margin-left: 28px;
+
+}
+
+
+.MeWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 0px 3px;
+  margin-bottom: 10px;
+  
+}
+
+.MeWrapper p {
+  color: rgb(0, 0, 0, 0.9);
+  margin-left: 25px;
+  font-size: 12px;
+  font-family: system-ui;
+  margin-bottom: 16px;
+  margin-left: 25px;
+}
+
+.MeWrapper img {
+  margin-top: 3px;
+}
+
+
+.dropDownUserInfoWrapper {
+  position: absolute;
+  top: 60px;
+  right: 360px;
+
+  border-radius: 2px;
+  background-color: white; 
+  height: 300px;
+  width: 200px;
+  z-index: 1000;
+}
+
+.dropDownUserInfo{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+
+}
+
+.dropDownUserInfo  {
+  font-family: system-ui;
+  font-size: 15px;
+  font-weight: 500;
+  
+}
+.dropDownUserIcon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.feedSignOut a {
+  margin-left: 10px;
+  text-decoration: none;
+}

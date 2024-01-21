@@ -1,3 +1,5 @@
+require "open-uri"
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -5,21 +7,26 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-ApplicationRecord.transaction do 
+
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
+  Post.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
+  ApplicationRecord.connection.reset_pk_sequence!('posts')
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   User.create!(
     username: 'demo-lition', 
     email: 'demo@user.io', 
-    password: 'password'
+    password: 'password',
+    first_name: 'Demo',
+    last_name: 'Lition'
+
   )
 
   # More users
@@ -27,9 +34,21 @@ ApplicationRecord.transaction do
     User.create!({
       username: Faker::Internet.unique.username(specifier: 3),
       email: Faker::Internet.unique.email,
-      password: 'password'
+      password: 'password',
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name
     }) 
   end
+
+  # post1 = Post.create!(
+  #   user_id: 1,
+  #   description: "Just joined ConnectIn!!!."
+  # )
+
+  # post1.photo.attach(
+  #   io: URI.open("https://connectin-fsp.s3.amazonaws.com/IMG_4252.jpeg"),
+  #   filename:"IMG_4252.jpeg"
+  # )
 
   puts "Creates posts..."
   Post.create!(user_id: 1, description: "Proud to announce the successful completion of our latest project! The team's dedication and synergy were instrumental in achieving a seamless product launch at Google. Excited about the impact this will have, and looking forward to future challenges! #ProjectSuccess #TeamEffort")
@@ -55,4 +74,3 @@ ApplicationRecord.transaction do
   
 
   puts "Done!"
-end

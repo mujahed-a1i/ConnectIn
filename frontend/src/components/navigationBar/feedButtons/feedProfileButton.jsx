@@ -1,5 +1,4 @@
 import userIcon from "../../assests/userIcon/user_icon.png" ;
-import userIcon20 from "../../assests/userIcon/icons8-user-profile-20.png" ;
 import dropDownTriangle from "../../assests/icons/dropdownTriangle.png";
 import "./feedProfileButton.css";
 import {useSelector, useDispatch} from 'react-redux';

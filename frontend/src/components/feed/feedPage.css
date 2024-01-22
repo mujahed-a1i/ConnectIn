@@ -7,13 +7,16 @@
 .feedCreatePostBoxWrapper {
   position: absolute;
   margin-bottom: 20px;
+  margin-top: 50px;
   left: 50%;
   transform: translateX(-50%);
 }
 .feedNavigationWrapper {
   width: 100vw;
+  position: fixed;
  
-  margin-top: 0px;
+  margin-bottom: 10px;
+  z-index: 1;
   /* transform: translate(0, -50%); */
 }
 .createPostBoxModal {
@@ -23,7 +26,7 @@
   transform: translateX(-50%);
   width: 100vw;
   height: 100vh;
-  z-index: 1500;
+  z-index: 1;
 }
 
 .feedCreatePostBoxContainer {
@@ -35,7 +38,9 @@
 .postCRUDWrapper {
   display: flex;
   flex-direction: column;
-  
+  z-index: 100;
+
+
 }
 
 
@@ -45,4 +50,11 @@
   height: 100vh;
   width: 400px; */
   background-color: red;
+}
+
+.feedPostDescription {
+  margin-top: 10px;
+}
+.PostImage {
+
 }

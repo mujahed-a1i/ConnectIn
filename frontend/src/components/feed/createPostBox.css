@@ -44,4 +44,11 @@
   margin-top: 1px;
 }
 
+.createPostBoxModal {
+  position: absolute;
+  z-index: 10;
+  margin-top: -50px;
+  
+}
+
 

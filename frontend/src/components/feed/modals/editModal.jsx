@@ -46,7 +46,7 @@ export default function EditModal({post, visible, setVisible}) {
       // document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
     };
-  }, [dispatch]);
+  }, [dispatch, visible]);
 
 
   const handleSubmitPost = (e) => {

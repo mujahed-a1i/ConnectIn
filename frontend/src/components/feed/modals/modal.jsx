@@ -67,7 +67,7 @@ export default function Modal() {
       <dialog open className="feedPostModal">
         <div className="feedPostUserInfo">
           <img className="feedModalUserIcon" src={userIcon} alt="User Post Icon" width="56" height="56"/>
-          <h1 className="feedPostUserName">{`${firstName}  ${lastName}`}</h1>
+          <h1 className="feedPostName">{`${firstName}  ${lastName}`}</h1>
           <img className="feedCloseButton" src={closeButton} onClick={handleCloseModal} height='20' width='20' alt="close" />
         </div>
         <form className="feedPostModalForm" action="submit">

@@ -39,10 +39,10 @@ const router = createBrowserRouter([
         path: ':feed',
         element: <FeedPage />,
       },
-      // {
-      //   path: "*",
-      //   element: <SplashPage/>
-      // }
+      {
+        path: "*",
+        element: <SplashPage/>
+      }
     ],
   },
 ]);

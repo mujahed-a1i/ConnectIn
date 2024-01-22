@@ -34,14 +34,14 @@ export default function PostSettingsDropDown({post, visible, setVisible}) {
         <div className='editModalWrapper'>
           {type && <EditModal post={post} visible={visible} setVisible={setVisible}/> }
         </div>
-        <div className='editPostWrapper'>
+        <div className='editPostWrapper' onClick={handleShowModal}>
           <img src={pencil} alt="edit" height="30" width="30"/>
-          <button onClick={handleShowModal}>Edit Post</button>
+          <button >Edit Post</button>
         </div>
         
-        <div className='deletePostWrapper'>
+        <div className='deletePostWrapper' onClick={handleDelete}>
           <img src={trashCan} alt="delete" height="30" width="30"/>
-          <button onClick={handleDelete}>Delete Post</button>
+          <button >Delete Post</button>
         </div>
       </>
     

@@ -28,10 +28,11 @@ export default function PostIndexItem({post}) {
     setVisible(!visible);
   };
 
+  console.log(post.mediaAttached)
+
 
   return (
     author && <div className="postWrapper">
-
       {visible && <div className="postSettingsDropDownWrapper">
         <PostSettingsDropDown post={post} visible={visible} setVisible={setVisible} />
       </div>}
@@ -46,11 +47,13 @@ export default function PostIndexItem({post}) {
         <h1 className="feedPostAuthorName">{`${author.firstName}  ${author.lastName}`}</h1> 
       </div>
 
-
       <p className="feedPostDescription">{post.description}</p>
 
-     
-
+      { post.mediaAttached && 
+      <img src={post.mediaAttached} className="PostImage" alt="image" width='550' height="550"/>
+      }
+  
+    
     </div> 
   );
 }

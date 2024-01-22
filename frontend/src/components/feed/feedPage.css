@@ -1,5 +1,5 @@
 .feedPage {
-  height: 100vh;
+  height: 5000px;
   background-color: rgb(243, 242, 240);
   width: 100vw;
 }
@@ -23,7 +23,7 @@
   transform: translateX(-50%);
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
+  z-index: 1500;
 }
 
 .feedCreatePostBoxContainer {

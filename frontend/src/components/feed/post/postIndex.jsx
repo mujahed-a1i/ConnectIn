@@ -14,17 +14,11 @@ export default function PostIndex() {
   const params = useParams();
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
-  // console.log(posts)
-
-  // console.log(arrayPost.reverse())
-  // console.log(posts)
-  // console.log(Object.values(posts).sort((a,b) => b.id - a.id));
-  // console.log(Object.values(posts).sort((a, b) => b[Object.keys(b)[0]].id - a[Object.keys(a)[0]].id));
-
+ 
   useEffect(() => {
     dispatch(fetchAllPosts());
   },[dispatch]);
-  // console.log(posts);
+
   if (params.feed === 'feed') {
     return (
       <div>

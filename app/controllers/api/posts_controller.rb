@@ -30,6 +30,7 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+
     if @post.update(post_params)
       render :show
     else 
@@ -39,7 +40,9 @@ class Api::PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+  
     if @post.destroy
+      @posts = Post.all
        render :index
     else
       render plain: "Post cant be deleted"
@@ -48,6 +51,6 @@ class Api::PostsController < ApplicationController
 
   private
     def post_params
-        params.require(:user).permit(:description, :user_id)
+        params.require(:post).permit(:description, :user_id)
     end
 end

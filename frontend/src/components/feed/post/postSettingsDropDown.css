@@ -1,0 +1,18 @@
+/* .postSettingsDropDown {
+  position: relative;
+  color: red;
+  border: solid;
+  border-color: aqua;
+  border-width: 3px;
+  height: 100px;
+  width: 500px;
+  text-align: left;
+  height: 110px;
+  z-index: 1000;
+  right: 50px;
+} */
+
+button {
+  width: 100%;
+  margin-bottom: 10px;
+}

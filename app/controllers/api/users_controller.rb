@@ -5,12 +5,13 @@ class Api::UsersController < ApplicationController
   def create
     
     @user = User.new(user_params)
-    @user.valid?
-    if @user.save
+    if @user.save!
         login!(@user)
         render :show
     else
-        render json: {errors: @user.errors.full_messages}  , status: 422
+      puts "User params: #{user_params.inspect}"
+      puts "User errors: #{user.errors.full_messages.inspect}"
+      render json: {errors: @user.errors.full_messages}  , status: :unprocessable_entity
     end
   end
 

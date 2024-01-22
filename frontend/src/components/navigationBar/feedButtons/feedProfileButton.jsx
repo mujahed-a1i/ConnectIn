@@ -10,7 +10,7 @@ export default function FeedProfileButton() {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
   const [visible, setVisible] = useState(false);
-  console.log(currentUser);
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {

@@ -20,6 +20,13 @@ const receivePosts = (posts) => {
   };
 };
 
+const removePost = (postId) => {
+  return {
+    type: REMOVE_POST,
+    postId,
+  };
+};
+
 // Thunk Action Creator 
 export const createPost = (newPost) => async dispatch => {
   const response = await csrfFetch("/api/posts", {
@@ -32,12 +39,33 @@ export const createPost = (newPost) => async dispatch => {
   return response;
 };
 
+export const updatePost = (updatedPost) => async dispatch => {
+  const response = await csrfFetch(`/api/posts/${updatedPost.id}`, {
+    method: "PUT",
+    body: JSON.stringify(updatedPost),
+  });
+
+  const { post } = await response.json(); // <-- This is causing the issue
+  dispatch(receivePost(post));
+  return response;
+};
+
+
 export const fetchAllPosts = () => async dispatch => {
   const response = await csrfFetch("/api/posts");
   const posts = await response.json();
   dispatch(receivePosts(posts));
   // return response;
 };
+
+export const deletePost = (postId) => async dispatch => {
+  const response = await csrfFetch(`/api/posts/${postId}`, {
+    method: "DELETE",
+  });
+  
+  dispatch(removePost(postId));
+  return response;
+}
 
 
 

@@ -70,6 +70,20 @@ require "open-uri"
 
   
   
+  puts "Creating experience..."
+  50.times do
+  title = Faker::Job.title
+  Experience.create!(
+    user_id: rand(1..11),
+    title: title,
+    company_name: Faker::Company.name,
+    location: Faker::Address.city,
+    start_date: Faker::Date.backward(days: 365 * 5),  # 5 years ago
+    end_date: Faker::Date.backward(days: 365),       # Up to 1 year ago
+    industry: Faker::Company.industry,
+    description: Faker::Lorem.paragraph(sentence_count: 3, supplemental: title)
+  )
+  end
   
   
 

@@ -8,6 +8,7 @@ import NavigationBar from '../../navigationBar/navigationBar';
 import ProfileBanner from './banner/profileBanner';
 import ProfilePicModal from "../modals/profilePicModal";
 import ProfileBannerModal from "../modals/profileBannerModal";
+import ExperienceIndex from "./experience/experienceIndex";
 export default function ProfilePage() {
   
   const navigate = useNavigate()
@@ -39,14 +40,9 @@ export default function ProfilePage() {
   }
   if (user) {
     return (
+      
       <div className="profilePageWrapper">
-        <div className="feedNavigationWrapper">
-          <NavigationBar />
-        </div>
-   
-        <div className="profilePageContentWrapper">
-          <div className='profileBannerWrapper'>
-            { type && 
+        { type && 
               <div className="profilePicModalWrapper">
                 < ProfilePicModal />
               </div>
@@ -56,11 +52,14 @@ export default function ProfilePage() {
                 < ProfileBannerModal />
               </div>
             }
-            <ProfileBanner user={user} />
+        <div className="feedNavigationWrapper">
+          <NavigationBar />
+        </div>
+   
+        <div className="profilePageContentWrapper">
+          <div className='profileBannerWrapper'>
             
-       
-
-          
+            <ProfileBanner user={user} />
           </div>
           <div className="profileLinkInfoWrapper">
             <div className="profileLinkContainer">

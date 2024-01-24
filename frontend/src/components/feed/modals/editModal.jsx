@@ -67,7 +67,6 @@ export default function EditModal({post, visible, setVisible}) {
   };
   if (currentUser.id === currentPost.userId && type) {
     return (
-      
       <dialog open className="feedEditPostModal">
         <div className="feedEditPostUserInfo">
           <img className="feedEditModalUserIcon" src={userIcon} alt="User Post Icon" width="56" height="56"/>

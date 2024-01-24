@@ -3,7 +3,7 @@
   background-color: white;
   width: 550px;
   height: 100px;
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   border: 2px;
@@ -13,6 +13,15 @@
 }
 
 .feedUserIcon {
+  height: 40px;
+  width: 40px;
+  margin-top: 25px;
+  margin-left: 30px;
+  margin-right: 8px;
+  border-radius: 20px;
+}
+
+.feedUserIcon2 {
   height: 40px;
   width: 40px;
   margin-top: 25px;
@@ -47,7 +56,7 @@
 .createPostBoxModal {
   position: absolute;
   z-index: 10;
-  margin-top: -50px;
+  
   
 }
 

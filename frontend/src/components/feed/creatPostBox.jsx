@@ -7,6 +7,7 @@ import Modal from "././modals/modal";
 
 export default function CreatePostBox() {
   const dispatch = useDispatch();
+  const currentUser = useSelector(state => state.session.user);
   const type = useSelector(state => state.modals.createPost);
 
   const handleShowModal = (e) => {
@@ -20,7 +21,9 @@ export default function CreatePostBox() {
       {type && <div className="createPostBoxModal"> 
         <Modal /> 
       </div> }
-      <img className="feedUserIcon" src={userIcon} alt="User Post Icon" width="42" height="42"/>
+      {<img className="feedUserIcon" src={currentUser.profilePic || userIcon} alt="User Post Icon" width="42" height="42"/>}
+      {!currentUser && <img className="feedUserIcon2" src={userIcon} alt="User Post Icon"  width="42" height="42"/> }
+
       <button className="feedCreatePostButton" onClick={handleShowModal}>Start a post</button>
     </div>
   );

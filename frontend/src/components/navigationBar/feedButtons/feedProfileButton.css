@@ -3,8 +3,16 @@
   flex-direction: column;
   flex-wrap: nowrap; */
   margin-top: 30px;
+
 }
-.feedUserIcon2 {
+.navUserIcon {
+  margin-top: 25px;
+  height: 30px;
+  width: 30px;
+  margin-left: 28px;
+  border-radius: 15px;
+}
+.navUserIcon2 {
   margin-top: 25px;
   height: 25px;
   width: 25px;
@@ -38,7 +46,7 @@
 .dropDownUserInfoWrapper {
   position: absolute;
   top: 60px;
-  right: 360px;
+  right: 160px;
 
   border-radius: 2px;
   background-color: white; 
@@ -65,6 +73,7 @@
 .dropDownUserIcon {
   margin-left: 10px;
   margin-right: 10px;
+  border-radius: 25px;
 }
 
 .feedSignOut a {

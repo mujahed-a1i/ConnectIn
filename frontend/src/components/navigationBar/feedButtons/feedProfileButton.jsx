@@ -44,12 +44,13 @@ export default function FeedProfileButton() {
  
   const handleDropDown = e => {
     e.preventDefault();
-    setVisible(!visible);
+    setVisible(true);
   };
 
   return (
     <div className="feedUserIconWrapper" onClick={handleDropDown}>
-      <img className="feedUserIcon2" src={userIcon} alt="User Post Icon" />
+      {currentUser && <img className="navUserIcon" src={currentUser.profilePic || userIcon} alt="User Post Icon" /> }
+      {!currentUser && <img className="navUserIcon2" src={userIcon} alt="User Post Icon" />}
       <div>
         <div className="MeWrapper">
           <p className="me">Me</p>
@@ -58,7 +59,7 @@ export default function FeedProfileButton() {
         { visible &&
           <ul className="dropDownUserInfoWrapper">
             <li className="dropDownUserInfo">
-              <img className="dropDownUserIcon" src={userIcon} alt="User Post Icon" width="50" height="50"/>
+              <img className="dropDownUserIcon" src={currentUser.profilePic || userIcon} alt="User Post Icon" width="50" height="50"/>
               <p>{`${currentUser.firstName} ${currentUser.lastName}`}</p>
             </li>
             <li className="feedSignOut">

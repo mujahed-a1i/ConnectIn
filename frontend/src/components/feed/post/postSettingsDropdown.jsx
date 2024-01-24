@@ -4,15 +4,16 @@ import trashCan from "../../assests/icons/delete-trashcan.png";
 import pencil from "../../assests/icons/edit-pencil.png";
 import * as postsActions from "../../../store/reducers/posts";
 import * as modalActions from "../../../store/reducers/modals";
-import EditModal from  "../modals/editModal";
-
-
+// import { fetchOnePost } from "../../../store/reducers/posts";
+// import EditModal from  "../modals/editModal";
 
 export default function PostSettingsDropDown({post, visible, setVisible}) { 
-  console.log(setVisible)
+
+
   const currentUser = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
+
   const type = useSelector(state => state.modals.editModal);
+  const dispatch = useDispatch();
 
   const handleDelete = (e) => {
     e.preventDefault();
@@ -22,18 +23,21 @@ export default function PostSettingsDropDown({post, visible, setVisible}) {
 
   const handleShowModal = (e) => {
     e.preventDefault();
-    console.log('clicked')
+    setVisible(!visible);
+    // dispatch(fetchOnePost(post.id));
     dispatch(modalActions.showModal("editModal"));
-
+    
   }; 
 
-  // console.log(currentUser.id === post.userId)
+
+
+
   if (currentUser.id === post.userId) {
     return (
       <>
-        <div className='editModalWrapper'>
-          {type && <EditModal post={post} visible={visible} setVisible={setVisible}/> }
-        </div>
+        {/* <div className='editModalWrapper'>
+          {(type && (currentUser.id === post.userId) ) && <EditModal post={post} visible={visible} setVisible={setVisible}/> }
+        </div> */}
         <div className='editPostWrapper' onClick={handleShowModal}>
           <img src={pencil} alt="edit" height="30" width="30"/>
           <button >Edit Post</button>

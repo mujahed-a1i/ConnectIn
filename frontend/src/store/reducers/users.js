@@ -20,6 +20,19 @@ const receiveUsers = (users) => {
   };
 };
 
+export const updateUser = (updatedUser) => async dispatch => {
+  const userId = updatedUser.get('id')
+
+  const response = await csrfFetch(`/api/users/${userId}`, {
+    method: "PUT",
+    body: updatedUser,
+  });
+  
+  const { user } = await response.json(); // <-- This is causing the issue
+  dispatch(receiveUser(user));
+  return response;
+};
+
 // Thunk Action Creator
 export const fetchUser = (userId) => async dispatch => {
   const response = await csrfFetch(`/api/users/${userId}`);
@@ -35,13 +48,14 @@ export const fetchAllUsers = () => async dispatch => {
   return response;
 };
 
-const usersReducer = (state = {user: null}, action) => {
+const usersReducer = (state = {}, action) => {
   Object.freeze(state);
   const newState = {...state};
   
   switch(action.type) {
   case RECEIVE_USER:
-    return { ...state, user: action.user };
+    newState[action.user.id] = action.user;
+    return newState;
   case RECEIVE_USERS:
     return {...newState, ...action.users};
   default:

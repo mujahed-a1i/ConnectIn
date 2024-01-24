@@ -108,15 +108,24 @@
 
 
 .feedNavBar {
+  
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: absolute;
+  /* top: 0; */
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10;
 
   background-color: white;
   /* right: 100px; */
-  width: 100vw;
+  /* width: 1150px; */
+  width: 1150px;
   height: 50px;
-  
+
   
 }
 
@@ -124,13 +133,7 @@
   width: 20px;
   height: 20px;
 }
-.feedTitle {
-  width: 10px;
-  
-  text-decoration: none;
-  /* margin-right:; */
-  margin-left: 300px;
-}
+
 
 .feedNavButtons {
   /* margin-right: 10%; */
@@ -140,6 +143,10 @@
 }
 
 .feedTitle {
+  /* position: fixed;
+  left: 20px;
+    /* Adjust the left position as needed */
+    top: 5px; */
   font-family: system-ui;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -152,13 +159,15 @@
   color: white;
   background-color: rgb(11, 101, 194);
   border-radius: 4px;
+  text-decoration: none;
+    /* margin-right:; */
+    margin-left: 150px;
 
 }
 
 .FeedProfileButtonWrapper {
   margin-left: 750px;
 }
-
 
 
 /* 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_20_173258) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_22_193010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_173258) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title", null: false
+    t.string "company_name", null: false
+    t.string "location"
+    t.date "start_date", null: false
+    t.date "end_date"
+    t.string "industry", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "description", null: false
@@ -53,12 +67,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_173258) do
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "username", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "first_name", null: false
-    t.text "last_name", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -66,5 +80,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_173258) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "experiences", "users"
   add_foreign_key "posts", "users"
 end

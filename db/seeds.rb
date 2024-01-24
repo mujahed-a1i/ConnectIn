@@ -40,15 +40,15 @@ require "open-uri"
     }) 
   end
 
-  # post1 = Post.create!(
-  #   user_id: 1,
-  #   description: "Just joined ConnectIn!!!."
-  # )
+  post1 = Post.create!(
+    user_id: 1,
+    description: "Just joined ConnectIn!!!."
+  )
 
-  # post1.photo.attach(
-  #   io: URI.open("https://connectin-fsp.s3.amazonaws.com/IMG_4252.jpeg"),
-  #   filename:"IMG_4252.jpeg"
-  # )
+  post1.photo.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/IMG_4252.jpeg"),
+    filename:"IMG_4252.jpeg"
+  )
 
   puts "Creates posts..."
   Post.create!(user_id: 1, description: "Proud to announce the successful completion of our latest project! The team's dedication and synergy were instrumental in achieving a seamless product launch at Google. Excited about the impact this will have, and looking forward to future challenges! #ProjectSuccess #TeamEffort")

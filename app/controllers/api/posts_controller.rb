@@ -1,7 +1,10 @@
 class Api::PostsController < ApplicationController
+  wrap_parameters include: Post.attribute_names + [:description, :photo]
   def create
-    @post = Post.new(description: params[:description])
+    @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @user = current_user
+
     if @post.save
       render :show
     else
@@ -21,6 +24,7 @@ class Api::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
     if @post 
       render :show
     else
@@ -51,6 +55,6 @@ class Api::PostsController < ApplicationController
 
   private
     def post_params
-        params.require(:post).permit(:description, :user_id)
+        params.require(:post).permit(:description, :photo)
     end
 end

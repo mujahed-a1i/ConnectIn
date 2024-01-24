@@ -13,7 +13,12 @@
 } */
 
 .editModalWrapper {
-  margin-top: 5px;
+  position: relative;
+  /* bottom: 500px; */
+  top: 1000px;
+  right: 100px;
+  /* bottom: 50px; */
+  z-index: 1000;
 }
 
 

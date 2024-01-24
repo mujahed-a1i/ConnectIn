@@ -30,6 +30,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   has_many :posts, dependent: :destroy
+  has_many :experiences, dependent: :destroy
+  has_one_attached :profile_pic, dependent: :destroy
 
   def ensure_session_token
     self.session_token ||= generate_unique_session_token

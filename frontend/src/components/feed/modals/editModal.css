@@ -1,6 +1,4 @@
 .feedEditPostModal {
-
-  
   border-style: none;
   border-radius: 10px;
   height: 500px;
@@ -31,9 +29,6 @@
   width: 690px;
   resize: none;
   height: 345px;
-}
-.feedEditPostModalTextBox:focus{
-  outline: none;
 }
 
 .feedEditCloseModalButton {

@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import SplashPage from './components/splash/splashPage';
 import SignUp from './components/session/signUp/signUp';
 import FeedPage from './components/feed/feedPage';
+import ProfilePage from './components/feed/profile/profilePage';
 import { restoreSession } from './store/reducers/session';
 
 
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: ':feed',
         element: <FeedPage />,
+      },
+      {
+        path: 'profile/:userId',
+        element: <ProfilePage/>,
+
       },
       {
         path: "*",

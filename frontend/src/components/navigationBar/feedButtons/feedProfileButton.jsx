@@ -3,6 +3,7 @@ import dropDownTriangle from "../../assests/icons/dropdownTriangle.png";
 import "./feedProfileButton.css";
 import {useSelector, useDispatch} from 'react-redux';
 import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom'
 import { Link} from "react-router-dom";
 import * as sessionActions from "../../../store/reducers/session";
 export default function FeedProfileButton() {
@@ -10,6 +11,7 @@ export default function FeedProfileButton() {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -39,12 +41,17 @@ export default function FeedProfileButton() {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logoutUser());
-    // navigate('/');
+    navigate('/');
   };
+
+  const handleToUserProfile = e => {
+    e.preventDefault()
+    navigate(`/profile/${currentUser.id}`)
+  }
  
   const handleDropDown = e => {
     e.preventDefault();
-    setVisible(true);
+    setVisible(!visible);
   };
 
   return (
@@ -62,10 +69,16 @@ export default function FeedProfileButton() {
               <img className="dropDownUserIcon" src={currentUser.profilePic || userIcon} alt="User Post Icon" width="50" height="50"/>
               <p>{`${currentUser.firstName} ${currentUser.lastName}`}</p>
             </li>
-            <li className="feedSignOut">
-              <Link  to='/' onClick={handleLogout}>
+            <li>
+              <button className="userProfileButton" onClick={handleToUserProfile}>
+                User Profile
+              </button>
+            </li>
+            <hr />
+            <li >
+              <button className="feedSignOut" onClick={handleLogout}>
                 Sign Out
-              </Link>
+              </button>
             </li>
           </ul>
         }

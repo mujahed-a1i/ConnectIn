@@ -3,12 +3,12 @@
 import "./postIndexItem.css";
 import { useDispatch, useSelector} from 'react-redux';
 import * as userActions from "../../../store/reducers/users";
-
+import {useNavigate} from "react-router-dom"
 import { useEffect, useState} from "react";
 import userIcon from "../../assests/userIcon/user_icon.png" ;
 import dots from "../../assests/icons/3dots.png";
 import PostSettingsDropDown from "./postSettingsDropdown";
-
+import EditModal from  "../modals/editModal";
 
 export default function PostIndexItem({post}) {
   const dispatch = useDispatch()
@@ -17,7 +17,7 @@ export default function PostIndexItem({post}) {
   const user = useSelector(state => state.users[post.userId])
   const canEdit = (currentUser.id === post.userId);
   const author = post.author
-
+  const navigate = useNavigate()
   // console.log(author);
 
   useEffect(() => {
@@ -46,6 +46,10 @@ export default function PostIndexItem({post}) {
     }
   };
 
+  const handleProfilePage = (e) => {
+    e.preventDefault()
+    navigate(`/profile/${post.userId}`)
+  }
 
 
   if (author) {
@@ -53,9 +57,9 @@ export default function PostIndexItem({post}) {
   
     return (
       <div className="postWrapper">
-        {/* <div className='editModalWrapper'>
-          {(type && (currentUser.id === post.userId) ) && <EditModal post={post} visible={visible} setVisible={setVisible}/> }
-        </div> */}
+        <div className='editModalWrapper'>
+          {<EditModal post={post} visible={visible} setVisible={setVisible}/> }
+        </div>
         {visible && <div className="postSettingsDropDownWrapper">
           <PostSettingsDropDown post={post} visible={visible} setVisible={setVisible} />
         </div>}
@@ -67,7 +71,9 @@ export default function PostIndexItem({post}) {
         
         <div className="feedPostUserInfo2">
           <img className="feedUserIcon" src={user && user.profilePic ? user.profilePic : userIcon} 
-            alt="User Post Icon" width="48" height="48"/> 
+            alt="User Post Icon" width="48" height="48"
+            onClick={handleProfilePage}
+            /> 
           <h1 className="feedPostAuthorName">{`${author.firstName}  ${author.lastName}`}</h1> 
         </div>
 

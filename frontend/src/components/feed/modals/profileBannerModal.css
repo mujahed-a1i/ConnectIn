@@ -1,23 +1,23 @@
-.profilePicModalContainer {
+.profileBannerPicModalContainer {
   background-color: white;
   width: 700px;
-  height: 425px;
+  height: 300px;
   border-radius: 10px;
   /* border: 2mm solid rgba(248, 79, 63); */
   /* background-color: rgb(255, 255, 255); */
   margin-left: 50%;
   margin-top: 30px;
   transform: translateX(-50%);
- 
+  
 }
 
-.profilePicModalHR {
+.profileBannerPicModalHR {
   border-color: rgba(230, 230, 230, 0.801);
 }
 
 
 
-.headshotSlogan  {
+.headshotSlogan {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -29,14 +29,15 @@
 
 .identitySlogan {
   display: flex;
-    justify-content: center;
-    text-align: center;
+  justify-content: center;
+  text-align: center;
   font-family: system-ui;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 55px;
 }
-.profilePicModalTitle {
+
+.profileBannerPicModalTitle {
   /* position: relative;
   left: 20px; */
   font-family: system-ui;
@@ -45,28 +46,28 @@
   padding: 10px;
 }
 
-.profilePicModalTitleWrapper {
+.profileBannerPicModalTitleWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.profilePicModalPicture {
+.profileBannerPicModalPicture {
   margin-left: 50%;
   transform: translateX(-50%);
   margin-bottom: 40px;
 }
 
-.profilePicModalButtons {
+.profileBannerPicModalButtons {
 
   align-items: center;
 }
 
-.profilePicUploadButton {
+.profileBannerPicUploadButton {
   /* position: relative;
   top: 10px;
   left: 350px; */
-  
+
   background-color: #0B65C2;
   color: white;
   height: 30px;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { fetchAllPosts } from "../../../store/reducers/posts";
 import PostIndexItem from "./postIndexItem";
 import {useParams } from 'react-router-dom';
-import EditModal from  "../modals/editModal";
+
 
 
 
@@ -29,9 +29,7 @@ export default function PostIndex() {
           
           
           <div className="feedPostIndexWrapper" key={post.id}>
-            <div className='editModalWrapper'>
-            <EditModal post={post} visible={visible} setVisible={setVisible}/> 
-            </div>
+            
             
             <PostIndexItem post={post} />
           </div>

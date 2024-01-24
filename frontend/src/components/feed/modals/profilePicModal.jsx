@@ -1,5 +1,5 @@
 import "./profilePicModal.css";
-import profilePicModalPicture from "../../assests/profillePicModal/profilePicModal.png";
+import profilePicModalPicture from "../../assests/profile/profillePicModal/profilePicModal.png";
 import * as modalActions from "../../../store/reducers/modals";
 import { useDispatch, useSelector} from "react-redux";
 import { useState } from "react";
@@ -21,7 +21,7 @@ export default function ProfilePicModal() {
     const formData = new FormData();
     formData.append('id', currentUser.id)
     if (photoFile) {
-      formData.append('user[profile_pic]', photoFile);
+      formData.append('user[profilePic]', photoFile);
     }
     for (const pair of formData.keys()) {
       console.log(pair); // This will log the key
@@ -42,21 +42,21 @@ export default function ProfilePicModal() {
     <div className="profilePicModalContainer">
       <div className="profilePicModalTitleWrapper">
         <h1 className="profilePicModalTitle">Add Photo</h1>
-        <button onClick={handleCloseModal}>close</button>
+        <button className="profilePicCloseModalButton" onClick={handleCloseModal}>close</button>
       </div>
-      <hr/>
+      <hr className="profilPicModalHR"/>
       <h2 className="headshotSlogan">No professional headshot needed <br />
           Just something that represents you.
       </h2>
       
-      <img className="profilePicModalPicture" src={profilePicModalPicture} alt="" height="104" width="438"/>
+      <img className="profilePicModalPicture" src={profilePicModalPicture} alt="Profile Pic Modal Picture" height="104" width="438"/>
       <h2 className="identitySlogan">On ConnectIn, we require members to use their real identities, 
         so take or upload a photo of yourself. 
       </h2>
-      <hr />
+      <hr className="profilPicModalHR"/>
       <div className="profilePicModalButtons">
-        <input type="file" onChange={handleFile} />
-        <button onClick={handleUpload}>Upload Photo</button>
+        <input className="profilePicFileSelect" type="file" onChange={handleFile} />
+        <button className="profilePicUploadButton" onClick={handleUpload}>Upload Photo</button>
       </div>
     </div>
   )

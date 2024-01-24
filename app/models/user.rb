@@ -32,6 +32,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :experiences, dependent: :destroy
   has_one_attached :profile_pic, dependent: :destroy
+  has_one_attached :profile_banner, dependent: :destroy
 
   def ensure_session_token
     self.session_token ||= generate_unique_session_token

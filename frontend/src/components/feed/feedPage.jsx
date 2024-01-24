@@ -36,8 +36,6 @@ export default function FeedPage() {
   
   return (
     <div className="feedPage">
-  
-     
       <div className="feedNavigationWrapper">
         <NavigationBar/>
       </div>

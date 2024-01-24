@@ -49,10 +49,10 @@
   right: 160px;
 
   border-radius: 2px;
-  background-color: white; 
-  height: 300px;
+  background-color: rgb(255, 255, 255); 
+  height: 200px;
   width: 200px;
-  z-index: 2;
+  z-index: 100;
 }
 
 .dropDownUserInfo{
@@ -79,4 +79,41 @@
 .feedSignOut a {
   margin-left: 10px;
   text-decoration: none;
+}
+
+.userProfileButton {
+  font-family: system-ui;
+  background-color: white;
+  color: rgb(64, 126, 203);
+  border: solid;
+  border-color: rgb(64, 126, 203);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 95%;
+  height: 20px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease;
+}
+
+.userProfileButton:hover {
+  background-color: lightblue;
+
+}
+
+ 
+.feedSignOut {
+  position: relative;
+  border-style: none;
+  background-color: white;
+  left: 5px;
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.feedSignOut:hover {
+  text-decoration: underline;
 }

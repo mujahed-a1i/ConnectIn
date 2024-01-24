@@ -18,7 +18,12 @@ async function csrfFetch(url, options = {}) {
     if (!options.headers["Content-Type"] && !(options.body instanceof FormData)) {
       options.headers["Content-Type"] = "application/json";
     }
+    
     options.headers["X-CSRF-Token"] = sessionStorage.getItem("X-CSRF-Token");
+    // const csrfToken = sessionStorage.getItem("X-CSRF-Token");
+    // if (csrfToken) {
+    //   options.headers["X-CSRF-Token"] = csrfToken;
+    // }
   }
 
 

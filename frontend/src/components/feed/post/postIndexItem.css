@@ -1,5 +1,5 @@
 .postWrapper {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: black;
   border-style: none;
   width: 550px;
@@ -36,7 +36,6 @@
   bottom: 10px;
 }
 
-
 /* 
 .currentUserDots:hover {
   border: none;
@@ -46,10 +45,9 @@
 } */
 
 .currentUserDotsWrapper {
-  position: fixed;
+  position: absolute;
   margin-top: 10px;
   margin-left: 500px;
-  z-index: 1;
   width: 35px;
   height: 35px;
   display: flex;
@@ -79,13 +77,13 @@
   /* text-align: left; */
   background-color: rgb(255, 255, 255);
  
-  position: fixed;
+  position: absolute;
   margin-top: 50px;
   left: 333px;
 
   width: 200px;
   height: 100px;
-  z-index: 1000;
+  z-index: 40;
 }
 
 .editPostWrapper {
@@ -116,6 +114,15 @@
 .PostImage {
   margin-bottom: 50px;
 
+}
+
+.editModalWrapper {
+  position: relative;
+  /* bottom: 500px; */
+  top: 0px;
+  right: 100px;
+  /* bottom: 50px; */
+  z-index: 1000;
 }
 
 

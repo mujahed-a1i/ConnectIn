@@ -5,7 +5,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom'
 // import { Link} from "react-router-dom";
-import * as sessionActions from "../../../store/reducers/session";
+//
+import { logoutUser } from "../../../store/reducers/session";
 export default function FeedProfileButton() {
 
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export default function FeedProfileButton() {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    dispatch(sessionActions.logoutUser());
+    dispatch(logoutUser());
     navigate('/');
   };
 

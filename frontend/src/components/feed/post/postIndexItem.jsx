@@ -22,7 +22,7 @@ export default function PostIndexItem({post}) {
 
   useEffect(() => {
     dispatch(userActions.fetchUser(post.userId))
-  }, [post.userId])
+  }, [dispatch, post.userId])
   // useEffect(() => {
   //   if (post.id) {
   //     dispatch(fetchOnePost(post.id));

@@ -1,6 +1,6 @@
 import "./profileBanner.css";
 import userIcon from "../../../assests/userIcon/user_icon.png";
-import { useState } from 'react';
+// import { useState } from 'react';
 import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux';
 import * as modalActions from '../../../../store/reducers/modals';

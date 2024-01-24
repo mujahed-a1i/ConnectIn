@@ -12,7 +12,7 @@ export default function PostSettingsDropDown({post, visible, setVisible}) {
 
   const currentUser = useSelector(state => state.session.user);
 
-  const type = useSelector(state => state.modals.editModal);
+  // const type = useSelector(state => state.modals.editModal);
   const dispatch = useDispatch();
 
   const handleDelete = (e) => {

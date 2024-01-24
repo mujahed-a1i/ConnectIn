@@ -4,7 +4,7 @@ import "./feedProfileButton.css";
 import {useSelector, useDispatch} from 'react-redux';
 import { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom'
-import { Link} from "react-router-dom";
+// import { Link} from "react-router-dom";
 import * as sessionActions from "../../../store/reducers/session";
 export default function FeedProfileButton() {
 

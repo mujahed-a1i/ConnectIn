@@ -28,6 +28,7 @@ export default function ProfileBannerModal() {
 
     if (dispatch(userActions.updateUser(formData))) {
       dispatch(modalActions.hideModal("profileBannerPicModal"))
+      document.body.style.overflow = 'visible';
     }
 
   };
@@ -36,6 +37,7 @@ export default function ProfileBannerModal() {
   const handleCloseModal = (e) => {
     e.preventDefault();
     dispatch(modalActions.hideModal("profileBannerPicModal"));
+    document.body.style.overflow = 'visible';
   };
   return (
     <div className="profileBannerPicModalContainer">

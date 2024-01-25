@@ -34,10 +34,7 @@
 .ProfileBannerInfoWrapper {
   /* border-width: 10px; */
   height: 200px;
-  border-bottom: solid;
-  border-right: solid;
-  border-left: solid;
-  border-color: navy;
+  border-style: none;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
 }

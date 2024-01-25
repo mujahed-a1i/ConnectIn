@@ -1,8 +1,24 @@
 import csrfFetch from "../csrf";
 
 // Action Constants
+const RECEIVE_EXPERIENCE = 'recieveExperience';
 const RECEIVE_EXPERIENCES = 'receiveExperiences';
+const REMOVE_EXPERIENCE = 'removeExperience';
 
+
+
+const removeExperience = (id) => {
+  return {
+    type: REMOVE_EXPERIENCE,
+    id,
+  }
+}
+const receiveExperience = (experience) => {
+  return {
+    type: RECEIVE_EXPERIENCE,
+    experience,
+  };
+};
 
 export const receiveExperiences = (experiences) => {
   return {
@@ -11,7 +27,7 @@ export const receiveExperiences = (experiences) => {
   };
 };
 
-
+// Thunk Action
 export const fetchAllExperiences = (userId) => async dispatch => {
 
   const response = await csrfFetch(`/api/users/${userId}`);
@@ -21,13 +37,40 @@ export const fetchAllExperiences = (userId) => async dispatch => {
 };
 
 
+export const createExperience = (newExperience) => async dispatch => {
+  
+  const response = await csrfFetch("/api/experiences", {
+    method: "POST",
+    body: JSON.stringify(newExperience),
+    // body: JSON.stringify(newPost),
+  });
+  const {experience} = await response.json();
+  dispatch(receiveExperience(experience));
+  return response;
+};
+
+export const deleteExperience = (experienceId) => async dispatch => {
+  const response = await csrfFetch(`/api/experiences/${experienceId}`, {
+    method: "DELETE",
+  });
+  
+  dispatch(removeExperience(experienceId));
+  return response;
+};
+
 const experiencesReducer = (state = {}, action) => {
   Object.freeze(state);
-  const newState = {...state};
+  let newState = {...state};
 
   switch(action.type){
+  case RECEIVE_EXPERIENCE:
+    newState[action.review.id] = action.review;
+    return newState;
   case RECEIVE_EXPERIENCES:
     return {...newState, ...action.experiences};
+  case REMOVE_EXPERIENCE:
+    delete newState[action.experienceId];
+    return newState;
   default:
     return newState;
   }

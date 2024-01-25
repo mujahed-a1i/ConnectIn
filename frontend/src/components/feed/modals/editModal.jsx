@@ -32,12 +32,14 @@ export default function EditModal({post, visible, setVisible}) {
 
       if (dropdownWrapper && !dropdownWrapper.contains(event.target)) {
         dispatch(modalsAction.hideModal());
+        document.body.style.overflow = 'visible';
       }
     };
 
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
         dispatch(modalsAction.hideModal("editModal"));
+        document.body.style.overflow = 'visible';
         setVisible(false);
       }
     };
@@ -58,12 +60,14 @@ export default function EditModal({post, visible, setVisible}) {
       description: description,
     };
     dispatch(modalsAction.hideModal(post.id));
+    document.body.style.overflow = 'visible';
     setVisible(false);
     dispatch(postAction.updatePost(editedPost));
   };
   const handleCloseModal = (e) => {
     e.preventDefault();
     dispatch(modalsAction.hideModal(post.id));
+    document.body.style.overflow = 'visible';
     setVisible(false);
   };
   if (currentUser.id === currentPost.userId && type === post.id) {

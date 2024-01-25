@@ -28,7 +28,34 @@ require "open-uri"
     last_name: 'Lition'
 
   )
+  ishan = User.create!(
+    username: 'ishan', 
+    email: 'ishan@user.io', 
+    password: 'password',
+    first_name: 'Ishan',
+    last_name: 'Chawla'
 
+  )
+
+  
+  
+  ishan.profile_pic.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/ishan.jpeg"),
+    filename:"ishan.jpeg"
+  )
+
+  christina = User.create!(
+    username: 'christina', 
+    email: 'christina@user.io', 
+    password: 'password',
+    first_name: 'Christina',
+    last_name: 'Fang'
+  )
+
+  christina.profile_pic.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/christina_profile_pic.png"),
+    filename:"christina.jpeg"
+    )
   # More users
   10.times do 
     User.create!({
@@ -40,10 +67,13 @@ require "open-uri"
     }) 
   end
 
+
+
   post1 = Post.create!(
     user_id: 1,
     description: "Just joined ConnectIn!!!."
   )
+
 
   post1.photo.attach(
     io: URI.open("https://connectin-fsp.s3.amazonaws.com/IMG_4252.jpeg"),
@@ -66,17 +96,25 @@ require "open-uri"
   Post.create!(user_id: 8, description: "Joined the innovation team at Amazon. Thrilled to contribute to cutting-edge projects shaping the future! #InnovationTeam #AmazonInnovation")
   Post.create!(user_id: 9, description: "Excited to take on a leadership role at LinkedIn. Looking forward to driving team success! #LeadershipRole #LinkedInCareer")
   Post.create!(user_id: 9, description: "Excited to join the AI research lab at IBM. Committed to advancing the field of artificial intelligence! #AIResearch #IBMResearchLab")
-  
+  ishan_post = Post.create!(user_id: 2, description: "First Day in NYC")
+  ishan_post.photo.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/ishan+copy.jpeg"),
+    filename:"Ishan copy"
+  )
 
-  
+  christina_post = Post.create!(user_id: 3, description: "Look at this cute dog 😁")
+  christina_post.photo.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/christina.JPG"),
+    filename:"christina 1"
+  )
   
   puts "Creating experience..."
-  50.times do
+  50.times do 
   title = Faker::Job.title
   Experience.create!(
-    user_id: rand(1..11),
+    user_id: rand(1..12),
     title: title,
-    company_name: Faker::Company.name,
+    company_name: Faker::Company.name,      
     location: Faker::Address.city,
     start_date: Faker::Date.backward(days: 365 * 5),  # 5 years ago
     end_date: Faker::Date.backward(days: 365),       # Up to 1 year ago

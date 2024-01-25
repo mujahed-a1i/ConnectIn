@@ -9,7 +9,7 @@ import ProfileBanner from './banner/profileBanner';
 import ProfilePicModal from "../modals/profilePicModal";
 import ProfileBannerModal from "../modals/profileBannerModal";
 import ExperienceIndex from "./experience/experienceIndex";
-import AddExperienceModal from "../modals/addExperienceModal";
+import AddExperienceModal from "../modals/experienceModal";
 export default function ProfilePage() {
   
   const navigate = useNavigate();
@@ -44,8 +44,7 @@ export default function ProfilePage() {
     return (
       
       <div className="profilePageWrapper">
-        
-        {/* < AddExperienceModal className="AddExperienceModalWrapper"/> */}
+
 
         { type && 
           <div className="profilePicModalWrapper">

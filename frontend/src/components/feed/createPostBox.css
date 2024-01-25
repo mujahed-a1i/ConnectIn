@@ -1,5 +1,5 @@
 .createPostBarWrapper {
-  
+  position: relative;
   background-color: rgb(255, 255, 255);
   width: 550px;
   height: 100px;
@@ -54,7 +54,9 @@
 }
 
 .createPostBoxModal {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 10;
   
   

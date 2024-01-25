@@ -1,5 +1,8 @@
 class Api::PostsController < ApplicationController
+  before_action :require_logged_in, only: [:create]
+  before_action :require_logged_in, only: [:destroy]  
   wrap_parameters include: Post.attribute_names + [:description, :photo]
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -8,7 +11,7 @@ class Api::PostsController < ApplicationController
     if @post.save
       render :show
     else
-      render json: {errors: @user.errors.full_messages}  , status: 422
+      render json: {errors: @post.errors.full_messages}  , status: 422
     end
   end
 
@@ -28,7 +31,7 @@ class Api::PostsController < ApplicationController
     if @post 
       render :show
     else
-      render json: {errors: @user.errors.full_messages}  , status: 404
+      render json: {errors: @post.errors.full_messages}  , status: 404
     end
   end
 

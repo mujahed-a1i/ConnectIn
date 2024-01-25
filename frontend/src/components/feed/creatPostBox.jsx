@@ -13,6 +13,7 @@ export default function CreatePostBox() {
   const handleShowModal = (e) => {
     e.preventDefault();
     dispatch(modalActions.showModal("createPost"));
+    document.body.style.overflow = "hidden";
   };
 
   return (

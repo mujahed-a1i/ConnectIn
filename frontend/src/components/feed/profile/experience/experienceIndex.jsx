@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import pencilIcon from '../../../assests/icons/edit-pencil.png';
 import plusIcon from '../../../assests/icons/plusIcon.png';
 import * as modalActions from '../../../../store/reducers/modals';
-import AddExperienceModal from "../../modals/addExperienceModal";
+import ExperienceModal from "../../modals/experienceModal";
 // import {useParams} from 'react-router-dom'
 
 
@@ -16,6 +16,7 @@ export default function ExperienceIndex({userId, className}){
 
   const handleShowAddExperienceModal = (e) => {
     e.preventDefault();
+    document.body.style.overflow = "hidden";
     dispatch(modalActions.showModal("addExperience"));
     console.log('clicked')
   };  
@@ -30,7 +31,7 @@ export default function ExperienceIndex({userId, className}){
   if (className === "profileExperienceIndex" && !!experiences) {
     return (
       <div className={className}>
-        <AddExperienceModal className="AddExperienceModalWrapper"/>
+        <ExperienceModal className="experienceModalWrapper"/>
         <div className="profileExperienceIndexHeader">
           <h1> Experience </h1>
  

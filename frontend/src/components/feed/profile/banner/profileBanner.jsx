@@ -18,12 +18,14 @@ export default function ProfileBanner({user}) {
     e.preventDefault();
     console.log("clicked");
     dispatch(modalActions.showModal("profilePicModal"));
+    document.body.style.overflow = "hidden";
   };
 
   const showProfileBannerPicModal= (e) => {
     e.preventDefault();
     console.log("clicked");
     dispatch(modalActions.showModal("profileBannerPicModal"));
+    document.body.style.overflow = "hidden";
   };
 
   return (

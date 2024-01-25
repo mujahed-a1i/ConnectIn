@@ -16,6 +16,15 @@
 #
 class Experience < ApplicationRecord
   validates :title, :company_name, :start_date, :industry, presence: true
-  validates :title, :company_name, :start_date, :industry, presence: true
+  # validate :end_date_after_start_date, if: -> { end_date.present? }
+  # validates :title, :company_name, :start_date, :industry, presence: true
   belongs_to :user
+
+  private
+
+  def end_date_after_start_date
+    if end_date <= start_date
+      errors.add(:end_date, "must be after the start date")
+    end
+  end
 end

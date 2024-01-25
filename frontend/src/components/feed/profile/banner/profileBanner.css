@@ -32,7 +32,7 @@
 }
 
 .ProfileBannerInfoWrapper {
-  border-width: 100px;
+  /* border-width: 10px; */
   height: 200px;
   border-bottom: solid;
   border-right: solid;
@@ -43,7 +43,7 @@
 }
 
 
-.profileBannerContainer {
+.profileBanner {
   background-color: rgb(255, 255, 255);
 }
 

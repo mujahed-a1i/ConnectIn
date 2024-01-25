@@ -1,0 +1,61 @@
+.profileExperienceIndex {
+  width: 730px;
+  border-style: none;
+  min-height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.profileExperienceIndex h1{
+  font-family: system-ui;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.profileExperienceIndexHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.profileExperienceAddButton {
+  position: relative;
+  top: -7px;
+  margin-right: 20px;
+
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+
+}
+
+.profileExperienceAddButton:hover {
+  background-color: rgba(224, 223, 223, 0.797);
+  border-radius: 20px;
+}
+
+.profileExperienceEditButton {
+  position: relative;
+  top: -7px;
+  margin-right: 10px;
+
+  height: 24px;
+  width: 24px;
+  padding: 9px;
+
+}
+
+.profileExperienceEditButton:hover {
+  background-color: rgba(224, 223, 223, 0.797);
+  border-radius: 20px;
+}
+.profileExperienceIndexHeaderButtons {
+  display: flex;
+  justify-content: space-between;
+}
+

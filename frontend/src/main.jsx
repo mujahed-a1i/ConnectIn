@@ -8,6 +8,7 @@ import {restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/reducers/session';
 import * as postActions from './store/reducers/posts';
 import * as usersActions from "./store/reducers/users"
+import * as experiencesActions from "./store/reducers/experiences"
 // import { restoreSession  } from './store/reducers/session';
 
 const store = configureStore();
@@ -19,6 +20,7 @@ if (import.meta.env.MODE !== 'production') {
   window.sessionActions = sessionActions;
   window.postActions = postActions;
   window.usersActions = usersActions;
+  window.experiencesActions = experiencesActions;
 }
 
 

@@ -12,7 +12,8 @@ export default function EditModal({post, visible, setVisible}) {
   const currentUser = useSelector(state => state.session.user);
   // const currentPost = useSelector(state => state.posts[post.id]);
   const currentPost = useSelector(state => state.posts[post.id]);
-  const type = useSelector(state => state.modals.editModal)
+  const type = useSelector(state => state.modals[post.id])
+  console.log(type)
   // console.log(currentPost)
 
 
@@ -56,16 +57,16 @@ export default function EditModal({post, visible, setVisible}) {
       id: post.id,
       description: description,
     };
-    dispatch(modalsAction.hideModal("editModal"));
+    dispatch(modalsAction.hideModal(post.id));
     setVisible(false);
     dispatch(postAction.updatePost(editedPost));
   };
   const handleCloseModal = (e) => {
     e.preventDefault();
-    dispatch(modalsAction.hideModal("editModal"));
+    dispatch(modalsAction.hideModal(post.id));
     setVisible(false);
   };
-  if (currentUser.id === currentPost.userId && type) {
+  if (currentUser.id === currentPost.userId && type === post.id) {
     return (
       <dialog open className="feedEditPostModal">
         <div className="feedEditPostUserInfo">

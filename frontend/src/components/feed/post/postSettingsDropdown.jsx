@@ -25,7 +25,7 @@ export default function PostSettingsDropDown({post, visible, setVisible}) {
     e.preventDefault();
     setVisible(!visible);
     // dispatch(fetchOnePost(post.id));
-    dispatch(modalActions.showModal("editModal"));
+    dispatch(modalActions.showModal(post.id));
     
   }; 
 

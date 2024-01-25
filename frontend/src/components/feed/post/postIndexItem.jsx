@@ -31,7 +31,7 @@ export default function PostIndexItem({post}) {
   
   // console.log(currentPost);
 
-  console.log(user)
+  // console.log(user)
   // if (user.profilePic){
   //   console.log(user.profilePic)
   // }

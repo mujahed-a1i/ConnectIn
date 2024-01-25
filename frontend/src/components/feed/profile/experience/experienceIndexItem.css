@@ -1,0 +1,26 @@
+
+.profileExperienceCompanyName {
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 400;
+
+}
+
+
+.profileExperienceTitle {
+  font-family: system-ui;
+  font-size: 16px;
+  font-weight: 600px;
+}
+
+.profileExperienceDates {
+  color: rgba(0, 0, 0, .6);
+  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 400px;
+}
+
+
+.profileExperienceIndexItem > p:not:first-child {
+  margin-top: 100px;
+}

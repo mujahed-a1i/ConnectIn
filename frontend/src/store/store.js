@@ -4,12 +4,14 @@ import sessionReducer from './reducers/session';
 import postsReducer from './reducers/posts';
 import modalsReducer from './reducers/modals';
 import usersReducer from './reducers/users';
+import experiencesReducer from './reducers/experiences';
 
 const rootReducer = combineReducers({
   users: usersReducer,
   session: sessionReducer,
   posts: postsReducer,
   modals: modalsReducer,
+  experiences: experiencesReducer
   
 });
 

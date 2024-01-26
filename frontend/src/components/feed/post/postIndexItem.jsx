@@ -63,10 +63,7 @@ export default function PostIndexItem({post}) {
         {visible && <div className="postSettingsDropDownWrapper">
           <PostSettingsDropDown post={post} visible={visible} setVisible={setVisible} />
         </div>}
-        { canEdit && <div className="currentUserDotsWrapper"  onClick={handleSettingsDropDown}>
-          <img className="currentUserDots" 
-            src={dots} alt="3 dots" />
-        </div> }
+        
 
         
         <div className="feedPostUserInfo2">
@@ -75,6 +72,10 @@ export default function PostIndexItem({post}) {
             onClick={handleProfilePage}
             /> 
           <h1 className="feedPostAuthorName">{`${author.firstName}  ${author.lastName}`}</h1> 
+          { canEdit && <div className="currentUserDotsWrapper"  onClick={handleSettingsDropDown}>
+          <img className="currentUserDots" 
+            src={dots} alt="3 dots" />
+        </div> }
         </div>
 
         <p className="feedPostDescription">{post.description}</p>

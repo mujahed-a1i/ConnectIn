@@ -5,6 +5,7 @@
   height: 500px;
   width: 700px;
   background-color: rgb(255, 255, 255);
+  z-index: 10;
 }
 
 .feedPostModal::backdrop {
@@ -29,6 +30,7 @@
   width: 690px;
   resize: none;
   height: 345px;
+  z-index: 10;
 }
 .feedPostModalTextBox:focus{
   outline: none;

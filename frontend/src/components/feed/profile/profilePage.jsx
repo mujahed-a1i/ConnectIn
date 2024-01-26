@@ -9,7 +9,8 @@ import ProfileBanner from './banner/profileBanner';
 import ProfilePicModal from "../modals/profilePicModal";
 import ProfileBannerModal from "../modals/profileBannerModal";
 import ExperienceIndex from "./experience/experienceIndex";
-import AddExperienceModal from "../modals/experienceModal";
+// import AddExperienceModal from "../modals/experienceModal";
+import PostIndex from "../../feed/post/postIndex"
 export default function ProfilePage() {
   
   const navigate = useNavigate();
@@ -43,8 +44,9 @@ export default function ProfilePage() {
   if (user) {
     return (
       
+      
       <div className="profilePageWrapper">
-
+        
 
         { type && 
           <div className="profilePicModalWrapper">
@@ -74,6 +76,8 @@ export default function ProfilePage() {
           </div>
           
           <ExperienceIndex userId={userId} className="profileExperienceIndex" />
+          
+          
 
         </div>
       </div>

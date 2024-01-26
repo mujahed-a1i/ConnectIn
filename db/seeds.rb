@@ -20,7 +20,7 @@ require "open-uri"
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
-  User.create!(
+  demo = User.create!(
     username: 'demo-lition', 
     email: 'demo@user.io', 
     password: 'password',
@@ -28,6 +28,20 @@ require "open-uri"
     last_name: 'Lition'
 
   )
+
+  demo.profile_pic.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/IMG_5493.jpeg"),
+    filename:"demo_p_pic"
+  )
+
+  demo.profile_banner.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/IMG_5560.jpeg"),
+    filename:"demo_p_banner"
+  )
+
+
+
+  
   ishan = User.create!(
     username: 'ishan', 
     email: 'ishan@user.io', 
@@ -69,17 +83,7 @@ require "open-uri"
 
 
 
-  post1 = Post.create!(
-    user_id: 1,
-    description: "Just joined ConnectIn!!!."
-  )
-
-
-  post1.photo.attach(
-    io: URI.open("https://connectin-fsp.s3.amazonaws.com/IMG_4252.jpeg"),
-    filename:"IMG_4252.jpeg"
-  )
-
+  
   puts "Creates posts..."
   Post.create!(user_id: 1, description: "Proud to announce the successful completion of our latest project! The team's dedication and synergy were instrumental in achieving a seamless product launch at Google. Excited about the impact this will have, and looking forward to future challenges! #ProjectSuccess #TeamEffort")
   Post.create!(user_id: 2, description: "Had an inspiring time at the 'Global Business Summit.' Engaged with thought leaders and made valuable connections with professionals passionate about global economic trends. Grateful for the opportunity to expand my network and learn from diverse perspectives at Microsoft! #NetworkingOpportunity #ProfessionalConnections")
@@ -96,6 +100,23 @@ require "open-uri"
   Post.create!(user_id: 8, description: "Joined the innovation team at Amazon. Thrilled to contribute to cutting-edge projects shaping the future! #InnovationTeam #AmazonInnovation")
   Post.create!(user_id: 9, description: "Excited to take on a leadership role at LinkedIn. Looking forward to driving team success! #LeadershipRole #LinkedInCareer")
   Post.create!(user_id: 9, description: "Excited to join the AI research lab at IBM. Committed to advancing the field of artificial intelligence! #AIResearch #IBMResearchLab")
+  
+  pokemon_programming = Post.create!(user_id: 2, 
+  description: "Did you like pokemon? Do you want to learn how to code? Why not enjoy both
+  I recently made this game.
+  \nHere is his link to it.
+  \nhttps://kooshnoo.github.io/pokemon-programming/
+  \nFor more details about my game, checkout my github.
+  \nhttps://github.com/KooShnoo/pokemon-programmingr"
+  )
+
+  pokemon_programming.photo.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/pokemonProgramming.png"),
+    filename: "pokemon programming"
+  )
+  
+  
+  
   ishan_post = Post.create!(user_id: 2, description: "First Day in NYC")
   ishan_post.photo.attach(
     io: URI.open("https://connectin-fsp.s3.amazonaws.com/ishan+copy.jpeg"),
@@ -106,6 +127,32 @@ require "open-uri"
   christina_post.photo.attach(
     io: URI.open("https://connectin-fsp.s3.amazonaws.com/christina.JPG"),
     filename:"christina 1"
+  )
+
+  balloon_popper = Post.create!(user_id: 1, 
+  description: "If you like popping some balloons. 
+  Checkout this game Mujahed made. 
+  \nHere is his link to the game.
+  \nhttps://mujahed-a1i.github.io/Balloon-Popper/
+  \nHere is his github link
+  \n https://github.com/mujahed-a1i/Balloon-Popper"
+  )
+
+  balloon_popper.photo.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/balloonPopper.png"),
+    filename: "ballon popper"
+  )
+
+
+  post1 = Post.create!(
+    user_id: 1,
+    description: "Just joined ConnectIn!!!."
+  )
+
+
+  post1.photo.attach(
+    io: URI.open("https://connectin-fsp.s3.amazonaws.com/IMG_4252.jpeg"),
+    filename:"IMG_4252.jpeg"
   )
   
   puts "Creating experience..."

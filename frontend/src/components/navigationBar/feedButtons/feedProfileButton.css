@@ -52,7 +52,7 @@
   background-color: rgb(255, 255, 255); 
   height: 200px;
   width: 200px;
-  z-index: 100;
+  z-index: 102;
 }
 
 .dropDownUserInfo{
@@ -61,15 +61,12 @@
   flex-direction: row;
   flex-wrap: nowrap;
   margin-bottom: 10px;
-
-}
-
-.dropDownUserInfo  {
   font-family: system-ui;
   font-size: 15px;
   font-weight: 500;
-  
+
 }
+
 .dropDownUserIcon {
   margin-left: 10px;
   margin-right: 10px;

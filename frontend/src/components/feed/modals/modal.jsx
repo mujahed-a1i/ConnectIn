@@ -80,9 +80,6 @@ export default function Modal() {
     setPhotoFile(file);
   };
 
-
-
-
   return (
     <dialog open className="feedPostModal" onSubmit={handleSubmitPost}>
       <div className="feedPostUserInfo">

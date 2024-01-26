@@ -1,8 +1,5 @@
 class Api::ExperiencesController < ApplicationController
   wrap_parameters include: Experience.attribute_names + ['title', 'companyName', 'industry', 'location', 'description', 'startDate', 'endDate']
-  before_action :require_logged_in, only: [:create]
-  before_action :require_logged_in, only: [:destroy] 
-  
 
   def create
     @experience = Experience.new(experience_params)

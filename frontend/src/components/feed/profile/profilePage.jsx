@@ -10,7 +10,7 @@ import ProfilePicModal from "../modals/profilePicModal";
 import ProfileBannerModal from "../modals/profileBannerModal";
 import ExperienceIndex from "./experience/experienceIndex";
 // import AddExperienceModal from "../modals/experienceModal";
-import PostIndex from "../../feed/post/postIndex"
+
 export default function ProfilePage() {
   
   const navigate = useNavigate();

@@ -16,7 +16,6 @@ export default function ExperienceIndex({userId, className}){
 
   const handleShowAddExperienceModal = (e) => {
     e.preventDefault();
-    document.body.style.overflow = "hidden";
     dispatch(modalActions.showModal("addExperience"));
     console.log('clicked')
   };  

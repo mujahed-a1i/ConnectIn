@@ -28,7 +28,6 @@ export default function ProfileBannerModal() {
 
     if (dispatch(userActions.updateUser(formData))) {
       dispatch(modalActions.hideModal("profileBannerPicModal"))
-      document.body.style.overflow = 'visible';
     }
 
   };

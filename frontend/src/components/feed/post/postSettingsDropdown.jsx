@@ -26,8 +26,6 @@ export default function PostSettingsDropDown({post, visible, setVisible}) {
     setVisible(!visible);
     // dispatch(fetchOnePost(post.id));
     dispatch(modalActions.showModal(post.id));
-    document.body.style.overflow = "hidden";
-    
   }; 
 
 

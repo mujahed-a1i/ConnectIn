@@ -21,7 +21,6 @@ export default function ExperienceModal({className}) {
   const hanldeCloseExperienceModal = (e) => {
     e.preventDefault();
     dispatch(modalActions.hideModal("addExperience"));
-    document.body.style.overflow = 'visible';
   };
 
   const handleSubmitExperience = async e => {
@@ -40,7 +39,6 @@ export default function ExperienceModal({className}) {
     try {
       await dispatch(createExperience(experience));
       dispatch(modalActions.hideModal("addExperience"));
-      document.body.style.overflow = 'visible';
     } catch (error) {
       console.error("Error creating experience:", error);
     // Handle error, show error message, etc.

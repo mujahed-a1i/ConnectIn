@@ -32,8 +32,6 @@ export default function Modal() {
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
         dispatch(modalsAction.hideModal("createPost"));
-        document.body.style.overflow = 'visible';
-        document.body.style.overflow = 'visible';
       }
     };
     // document.addEventListener("mousedown", handleClickOutside);
@@ -63,7 +61,6 @@ export default function Modal() {
     }
     // console.log(photoFile);
     dispatch(modalsAction.hideModal("createPost"));
-    document.body.style.overflow = 'visible';
     dispatch(postAction.createPost(formData));
     setDescription("");
   };
@@ -72,7 +69,6 @@ export default function Modal() {
   const handleCloseModal = (e) => {
     e.preventDefault();
     dispatch(modalsAction.hideModal("createPost"));
-    document.body.style.overflow = 'visible';
   };
 
   const handleFile = ({ currentTarget }) => {

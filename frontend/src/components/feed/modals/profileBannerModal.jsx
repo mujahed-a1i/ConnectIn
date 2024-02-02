@@ -36,7 +36,6 @@ export default function ProfileBannerModal() {
   const handleCloseModal = (e) => {
     e.preventDefault();
     dispatch(modalActions.hideModal("profileBannerPicModal"));
-    document.body.style.overflow = 'visible';
   };
   return (
     <div className="profileBannerPicModalContainer">

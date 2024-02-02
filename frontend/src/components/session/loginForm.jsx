@@ -1,7 +1,7 @@
 import "./loginForm.css"
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import * as sessionActions from '../../store/reducers/session';
 
 
@@ -12,32 +12,52 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
   const [visible, setVisible] = useState(false);
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   
 
   // if (sessionUser) return <Navigate to="/feed" replace={true} />
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setErrors([]);
+  //   return dispatch(sessionActions.loginUser({ credential, password }))
+  //     // .then(() => {
+  //     //   navigate('/feed'); // Moved inside the .then() block
+  //     // })
+  //     .catch(async (res) => {
+  //       let data;
+  //       try {
+  //         // .clone() essentially allows you to read the response body twice
+  //         data = await res.clone().json();
+  //       } catch {
+  //         data = await res.text(); // Will hit this case if the server is down
+  //       }
+  //       if (data?.errors) setErrors(data.errors);
+  //       else if (data) setErrors([data]);
+  //       else setErrors([res.statusText]);
+  //     });
+  // }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.loginUser({ credential, password }))
-      .then(() => {
-        navigate('/feed'); // Moved inside the .then() block
-      }
-      )
-      .catch(async (res) => {
-        let data;
-        try {
-          // .clone() essentially allows you to read the response body twice
-          data = await res.clone().json();
-        } catch {
-          data = await res.text(); // Will hit this case if the server is down
+      .catch(
+        async (res) => {
+          let data;
+          try {
+            // .clone() essentially allows you to read the response body twice
+            data = await res.clone().json();
+          } catch {
+            data = await res.text(); // Will hit this case if the server is down
+          }
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
         }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
-  }
+      );
+  };
+  
 
   const handleDemo = (e) => {
     e.preventDefault();
@@ -57,7 +77,7 @@ function LoginForm() {
     <form>
       <ul>
         {errors.map((error, index) => (
-          <li key={index}>{error.message}</li>
+          <li key={index}>{error.message || error}</li>
         ))}
       </ul>
 
@@ -73,7 +93,7 @@ function LoginForm() {
         </label>
       </div>
       
-      <div className="loginForm">
+      <div className="loginForm" >
         <label className="placeHolder">
           <p>Password</p>
           <input

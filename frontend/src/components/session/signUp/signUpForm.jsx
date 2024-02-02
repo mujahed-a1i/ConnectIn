@@ -2,12 +2,12 @@ import "./signUpForm.css";
 // import { Navigate} from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useNavigate} from "react-router-dom"
+// import {useNavigate} from "react-router-dom"
 import * as sessionActions from '../../../store/reducers/session';
 
 function SignUpForm() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
@@ -33,7 +33,6 @@ function SignUpForm() {
       firstName: firstName,
       lastName: lastName,
     };
-    navigate('/feed')
     return dispatch(sessionActions.createUser(user))
       .catch(async (res) => {
         let data;

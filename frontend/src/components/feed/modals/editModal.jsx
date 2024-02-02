@@ -13,7 +13,6 @@ export default function EditModal({post, visible, setVisible}) {
   // const currentPost = useSelector(state => state.posts[post.id]);
   const currentPost = useSelector(state => state.posts[post.id]);
   const type = useSelector(state => state.modals[post.id])
-  console.log(type)
   // console.log(currentPost)
 
 

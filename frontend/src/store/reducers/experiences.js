@@ -7,18 +7,18 @@ const REMOVE_EXPERIENCE = 'removeExperience';
 
 
 
-const removeExperience = (id) => {
+const removeExperience = (experienceId) => {
   return {
     type: REMOVE_EXPERIENCE,
-    id,
-  }
-}
-const receiveExperience = (experience) => {
-  return {
-    type: RECEIVE_EXPERIENCE,
-    experience,
+    experienceId,
   };
 };
+// const receiveExperience = (experience) => {
+//   return {
+//     type: RECEIVE_EXPERIENCE,
+//     experience,
+//   };
+// };
 
 export const receiveExperiences = (experiences) => {
   return {
@@ -38,14 +38,36 @@ export const fetchAllExperiences = (userId) => async dispatch => {
 
 
 export const createExperience = (newExperience) => async dispatch => {
-  
   const response = await csrfFetch("/api/experiences", {
     method: "POST",
     body: JSON.stringify(newExperience),
     // body: JSON.stringify(newPost),
   });
-  const {experience} = await response.json();
-  dispatch(receiveExperience(experience));
+
+  // console.log(response.json());
+  const user = await response.json();
+  // console.log(user.experiences)
+  dispatch(receiveExperiences(user.experiences));
+
+  // dispatch(receiveExperience(user.experiences[newExperience.id]));
+  // console.log(response)
+  return response;
+};
+
+export const updateExperience = (editExperience) => async dispatch => {
+  const response = await csrfFetch(`/api/experiences/${editExperience.id}`, {
+    method: "PUT",
+    body: JSON.stringify(editExperience),
+    // body: JSON.stringify(newPost),
+  });
+
+  // console.log(response.json());
+  const user = await response.json();
+  // console.log(user.experiences)
+  dispatch(receiveExperiences(user.experiences));
+
+  // dispatch(receiveExperience(user.experiences[newExperience.id]));
+  // console.log(response)
   return response;
 };
 
@@ -67,7 +89,8 @@ const experiencesReducer = (state = {}, action) => {
     newState[action.review.id] = action.review;
     return newState;
   case RECEIVE_EXPERIENCES:
-    return {...newState, ...action.experiences};
+
+    return {...action.experiences};
   case REMOVE_EXPERIENCE:
     delete newState[action.experienceId];
     return newState;

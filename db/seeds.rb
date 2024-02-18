@@ -156,19 +156,24 @@ require "open-uri"
   )
   
   puts "Creating experience..."
-  50.times do 
-  title = Faker::Job.title
-  Experience.create!(
-    user_id: rand(1..12),
-    title: title,
-    company_name: Faker::Company.name,      
-    location: Faker::Address.city,
-    start_date: Faker::Date.backward(days: 365 * 5),  # 5 years ago
-    end_date: Faker::Date.backward(days: 365),       # Up to 1 year ago
-    industry: Faker::Company.industry,
-    description: Faker::Lorem.paragraph(sentence_count: 3, supplemental: title)
-  )
+  User.all.each do |user|
+    4.times do 
+    title = Faker::Job.title
+    start_date = Faker::Date.backward(days: 365 * 5)  # 5 years ago
+    end_date = Faker::Date.between(from: start_date, to: Date.today - 1)
+    Experience.create!(
+      user_id: user.id,
+      title: title,
+      company_name: Faker::Company.name,      
+      location: Faker::Address.city,
+      start_date: start_date,
+      end_date: end_date,
+      industry: Faker::Company.industry,
+      description: Faker::Lorem.paragraph(sentence_count: 3, supplemental: title)
+    )
+    end
   end
+
   
   
 

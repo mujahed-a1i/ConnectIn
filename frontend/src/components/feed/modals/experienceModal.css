@@ -4,7 +4,20 @@
   left: 0px;
   height: 1400px;
   width: 100%;
-  
+}
+.experienceModalWrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 1400px;
+  width: 100%;
+}
+
+.experienceCreateErrors {
+  color: red;
+  list-style-type: disc;
+  margin-top: 10px;
+  margin-left: 13px;
 }
 
 .experienceTitle {
@@ -55,7 +68,7 @@
   margin-left: 50%;
   transform: translate(-50%);
   position: absolute;
-  height: 700px;
+  min-height: 700px;
   width: 700px;
   border-style: solid;
   background-color: white;

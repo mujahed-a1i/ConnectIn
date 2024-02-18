@@ -9,6 +9,7 @@ import ProfileBanner from './banner/profileBanner';
 import ProfilePicModal from "../modals/profilePicModal";
 import ProfileBannerModal from "../modals/profileBannerModal";
 import ExperienceIndex from "./experience/experienceIndex";
+import * as experiencesAction from "../../../store/reducers/experiences"
 // import AddExperienceModal from "../modals/experienceModal";
 
 export default function ProfilePage() {
@@ -17,7 +18,9 @@ export default function ProfilePage() {
   const currentUser = useSelector(state => state.session.user);
 
   const {userId} = useParams();
-  console.log(typeof userId);
+  // console.log(typeof userId);
+  const experiences = useSelector(state => state.experiences);
+
   const user = useSelector(state => state.users[userId]);
   const type = useSelector(state => state.modals.profilePicModal);
   const type2 = useSelector(state => state.modals.profileBannerPicModal);
@@ -33,7 +36,9 @@ export default function ProfilePage() {
     }
   }, [currentUser, navigate]);
 
-  
+  useEffect(() => {
+    dispatch(experiencesAction.fetchAllExperiences(userId));
+  }, [dispatch, userId]);
   // console.log(user.firstName);
 
   if (!user) {
@@ -75,7 +80,7 @@ export default function ProfilePage() {
             
           </div>
           
-          <ExperienceIndex userId={userId} className="profileExperienceIndex" />
+          {!!experiences && <ExperienceIndex experiences={experiences} userId={userId} className="profileExperienceIndex" />}
           
           
 

@@ -9,6 +9,7 @@ import  * as postAction from '../../../store/reducers/posts';
 // import {useNavigate} from "react-router-dom";
 
 export default function EditModal({post, visible, setVisible}) {
+  // console.log(post)
   const currentUser = useSelector(state => state.session.user);
   // const currentPost = useSelector(state => state.posts[post.id]);
   const currentPost = useSelector(state => state.posts[post.id]);

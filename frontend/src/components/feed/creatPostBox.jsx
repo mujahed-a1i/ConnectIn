@@ -10,7 +10,7 @@ export default function CreatePostBox() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user);
-  console.log(currentUser.id)
+  // console.log(currentUser.id)
   const type = useSelector(state => state.modals.createPost);
 
   const handleShowModal = (e) => {

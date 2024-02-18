@@ -56,9 +56,9 @@ export default function Modal() {
     if (photoFile) {
       formData.append('post[photo]', photoFile);
     }
-    for (const pair of formData.entries()) {
-      console.log(pair[0]); // This will log the key
-    }
+    // for (const pair of formData.entries()) {
+    //   console.log(pair[0]); // This will log the key
+    // }
     // console.log(photoFile);
     dispatch(modalsAction.hideModal("createPost"));
     dispatch(postAction.createPost(formData));

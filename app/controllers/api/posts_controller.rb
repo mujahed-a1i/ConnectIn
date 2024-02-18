@@ -37,6 +37,8 @@ class Api::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.user_id = current_user.id
+    @user = current_user
 
     if @post.update(post_params)
       render :show

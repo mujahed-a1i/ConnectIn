@@ -11,7 +11,7 @@ end
 json.experiences do 
   @user.experiences.each do |experience|
     json.set! experience.id do
-      json.extract! experience, :user_id, :title, :company_name, :location, 
+      json.extract! experience, :id, :user_id, :title, :company_name, :location, 
         :start_date, :end_date, :industry, :description, :created_at
     end  
   end

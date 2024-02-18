@@ -22,9 +22,9 @@ export default function ProfileBannerModal() {
     if (photoFile) {
       formData.append('user[profileBanner]', photoFile);
     }
-    for (const pair of formData.keys()) {
-      console.log(pair); // This will log the key
-    }
+    // for (const pair of formData.keys()) {
+    //   console.log(pair); // This will log the key
+    // }
 
     if (dispatch(userActions.updateUser(formData))) {
       dispatch(modalActions.hideModal("profileBannerPicModal"))

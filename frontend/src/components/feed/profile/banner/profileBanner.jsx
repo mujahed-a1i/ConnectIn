@@ -5,6 +5,7 @@ import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux';
 import * as modalActions from '../../../../store/reducers/modals';
 import profileBackground from "../../../assests/profile/profileBannerBackground.jpeg"
+import editPencil from "../../../assests/icons/edit-pencil-blue.png"
 
 export default function ProfileBanner({user}) {
   const currentUser = useSelector(state => state.session.user);
@@ -16,13 +17,13 @@ export default function ProfileBanner({user}) {
   const canEdit = (currentUser.id == params.userId)
   const showProfilePicModal= (e) => {
     e.preventDefault();
-    console.log("clicked");
+    // console.log("clicked");
     dispatch(modalActions.showModal("profilePicModal"));
   };
 
   const showProfileBannerPicModal= (e) => {
     e.preventDefault();
-    console.log("clicked");
+    // console.log("clicked");
     dispatch(modalActions.showModal("profileBannerPicModal"));
   };
 
@@ -30,6 +31,10 @@ export default function ProfileBanner({user}) {
     <div className="profileBanner">
       <div className="profilePicWrapper">
         <img className="profileBackground" src={user.profileBanner || profileBackground} alt="Profile Background" 
+          onClick={canEdit ? showProfileBannerPicModal : undefined}
+        />
+
+        <img src={editPencil} alt="edit banner pic" className="editPencilBanner" 
           onClick={canEdit ? showProfileBannerPicModal : undefined}
         />
         <img className="profilePic" src={user.profilePic || userIcon} alt="User Post Icon" 

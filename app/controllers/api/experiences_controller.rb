@@ -11,6 +11,27 @@ class Api::ExperiencesController < ApplicationController
       render json: {errors: @experience.errors.full_messages}, status: 422
     end
   end
+  
+
+  def index
+
+      @experiences = Experience.all
+      render :index
+    # end    
+  end
+
+  def update
+    @experience = Experience.find(params[:id])
+    @experience.user_id = current_user.id
+    @user = current_user
+
+    if @experience.update(experience_params)
+      render 'api/users/show'
+    else 
+      render json: {errors: @experience.errors.full_messages}  , status: 422
+    end
+  end
+
 
   def destroy
     @experience = Experience.find(params[:id])

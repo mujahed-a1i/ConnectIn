@@ -39,6 +39,7 @@
 .postCRUDWrapper {
   display: flex;
   flex-direction: column;
+  min-height: 200px;
   align-items: center;
   background-color: rgb(244, 242, 238);
 

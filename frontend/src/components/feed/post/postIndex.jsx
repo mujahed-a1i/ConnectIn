@@ -24,11 +24,11 @@ export default function PostIndex() {
 
   if (params.feed === 'feed') {
     return (
-      <div>
+      <div className="feedPostIndexWrapper">
         {Object.values(posts).reverse().map((post) => (
           
           
-          <div className="feedPostIndexWrapper" key={post.id}>
+          <div key={post.id}>
             
             
             <PostIndexItem post={post} />

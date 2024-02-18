@@ -46,11 +46,13 @@
 .dropDownUserInfoWrapper {
   position: absolute;
   top: 60px;
-  right: 160px;
+  right: 70px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 
-  border-radius: 2px;
   background-color: rgb(255, 255, 255); 
-  height: 200px;
+  min-height: 200px;
   width: 200px;
   z-index: 102;
 }
@@ -84,11 +86,13 @@
   color: rgb(64, 126, 203);
   border: solid;
   border-color: rgb(64, 126, 203);
-  border-radius: 10px;
+  border-radius: 12px;
   margin-top: 10px;
   margin-bottom: 10px;
   width: 95%;
-  height: 20px;
+  height: 25px;
+  font-size: 14px;
+  font-weight: 600;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -113,4 +117,14 @@
 
 .feedSignOut:hover {
   text-decoration: underline;
+}
+
+.dDownMyLinksIcons {
+  height: 20px;
+  width: 20px;
+}
+.dDownMyLinksIcons2 {
+
+  height: 20px;
+  width: 20px;
 }

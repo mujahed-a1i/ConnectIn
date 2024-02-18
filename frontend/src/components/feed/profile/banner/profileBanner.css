@@ -20,6 +20,22 @@
 
 }
 
+.editPencilBanner {
+  width: 20px;
+  height: 20px;
+  /* margin-right: 20px; */
+  padding: 10px;
+  position: absolute;
+  border-radius: 20px;
+  background-color: white;
+  top: 10px;
+  right: 15px;
+}
+
+.editPencilBanner {
+  cursor: pointer;
+}
+
 .profileBannerUserName {
   font-size: 24px;
   font-family: system-ui;

@@ -11,6 +11,23 @@
 
 }
 
+.myLinksIcons {
+  height: 40px;
+  width: 40px;
+
+}
+.myLinksIcons2 {
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  /* position: absolute;
+  top: 50%;
+  transform: translateY(-50%); */
+  
+  /* margin-right: 100px; */
+
+}
+
 .splashTitle {
   font-size: 30px;
   font-family: system-ui;
@@ -140,6 +157,7 @@
   margin-bottom: 30px;
   display: flex;
   flex-direction: row;
+  align-content: center;
 }
 
 .feedTitle {
@@ -166,9 +184,11 @@
 }
 
 .FeedProfileButtonWrapper {
+  display: flex;
+  flex-direction: row;
   margin-left: 750px;
   z-index: 100;
-  
+  align-items: last baseline;
 }
 
 

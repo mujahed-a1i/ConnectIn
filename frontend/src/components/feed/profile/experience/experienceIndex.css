@@ -4,7 +4,8 @@
   min-height: 200px;
   border-radius: 10px;
   background-color: white;
-  padding: 10px;
+  padding: 10px;  
+  /* margin-bottom: 100px; */
 }
 
 .profileExperienceIndex h1{
@@ -20,7 +21,7 @@
   flex-direction: row;
   align-items: center;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .profileExperienceAddButton {

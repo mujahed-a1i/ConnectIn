@@ -3,7 +3,11 @@ import dropDownTriangle from "../../assests/icons/dropdownTriangle.png";
 import "./feedProfileButton.css";
 import {useSelector, useDispatch} from 'react-redux';
 import { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import githubIcon from "../../assests/icons/github.png";
+import linkedinIcon from "../../assests/icons/linkedinlogo.png";
+
+
 // import { Link} from "react-router-dom";
 //
 import { logoutUser } from "../../../store/reducers/session";
@@ -16,13 +20,13 @@ export default function FeedProfileButton() {
 
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      const dropdownWrapper = document.querySelector(".feedUserIconWrapper");
+    // const handleClickOutside = (event) => {
+    //   const dropdownWrapper = document.querySelector(".feedUserIconWrapper");
 
-      if (dropdownWrapper && !dropdownWrapper.contains(event.target)) {
-        setVisible(false);
-      }
-    };
+    //   if (dropdownWrapper && !dropdownWrapper.contains(event.target)) {
+    //     setVisible(false);
+    //   }
+    // };
 
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
@@ -30,14 +34,25 @@ export default function FeedProfileButton() {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    // document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscapeKey);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      // document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
     };
   }, []);
+
+  const handleToGithub = e => {
+    e.preventDefault();
+    // e.stopPropagation(); // Add this line to stop event propagation
+    window.open("http://github.com/mujahed-a1i/ConnectIn", '_blank');
+  };
+  const handleToLinkedIN = e => {
+    e.preventDefault();
+    // e.stopPropagation(); // Add this line to stop event propagation
+    window.open("http://linkedin.com/in/mujahed-ali-957276169/", '_blank');
+  };
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -46,9 +61,9 @@ export default function FeedProfileButton() {
   };
 
   const handleToUserProfile = e => {
-    e.preventDefault()
-    navigate(`/profile/${currentUser.id}`)
-  }
+    e.preventDefault();
+    navigate(`/profile/${currentUser.id}`);
+  };
  
   const handleDropDown = e => {
     e.preventDefault();
@@ -65,23 +80,31 @@ export default function FeedProfileButton() {
           <img src={dropDownTriangle} alt="Drop Down Triangle"  width="10" height="5" />
         </div>
         { visible &&
-          <ul className="dropDownUserInfoWrapper">
-            <li className="dropDownUserInfo">
+          <div className="dropDownUserInfoWrapper">
+            <div className="dropDownUserInfo">
               <img className="dropDownUserIcon" src={currentUser.profilePic || userIcon} alt="User Post Icon" width="50" height="50"/>
               <p>{`${currentUser.firstName} ${currentUser.lastName}`}</p>
-            </li>
-            <li>
+            </div>
+            <div>
               <button className="userProfileButton" onClick={handleToUserProfile}>
                 User Profile
               </button>
-            </li>
+            </div>
+   
+            <div>
+              <img src={githubIcon} className="dDownMyLinksIcons2"alt="" onClick={handleToGithub} />
+              <img src={linkedinIcon} className="dDownMyLinksIcons" alt=""onClick={handleToLinkedIN} />
+            </div>
+            
+
             <hr />
-            <li >
+            <div>
               <button className="feedSignOut" onClick={handleLogout}>
                 Sign Out
               </button>
-            </li>
-          </ul>
+
+            </div>
+          </div>
         }
   
       </div>

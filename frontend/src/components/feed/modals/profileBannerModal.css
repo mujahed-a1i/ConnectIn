@@ -1,7 +1,7 @@
 .profileBannerPicModalContainer {
   background-color: white;
   width: 700px;
-  height: 300px;
+  min-height: 280px;
   border-radius: 10px;
   /* border: 2mm solid rgba(248, 79, 63); */
   /* background-color: rgb(255, 255, 255); */
@@ -59,8 +59,13 @@
 }
 
 .profileBannerPicModalButtons {
-
   align-items: center;
+  height: 20px;
+  position: relative;
+  top: 7px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
 }
 
 .profileBannerPicUploadButton {
@@ -81,15 +86,24 @@
 }
 
 .profilePicFileSelect {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 280px;
+
   /* position: relative;
   top: 10px;
   left: 20px; */
 }
 
-.profilePicCloseModalButton {
+.profileBannerPicCloseModalButton {
   position: relative;
-  left: 500px
+  height: 20px;
+  width: 20px;
+  padding: 10px;
+  border-style: none;
+  border-radius: 20px;
+  transition: 0.3s ease-out;
+  left: 470px;
+
+}
+
+.profileBannerPicCloseModalButton:hover {
+  background-color: rgb(222, 222, 222);
 }

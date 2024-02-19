@@ -166,21 +166,35 @@
     /* Adjust the left position as needed */
   top: 5px; 
   font-family: system-ui;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-right: 3px;
-  padding-left: 3px;
   font-size: 30px;
   font-weight: 700;
-  width: 28px;
+  min-width: 28px;
   height: 30px;
+
+
+
+  
+
+  text-decoration: none;
+    /* margin-right:; */
+    /* margin-left: 150px; */
+
+}
+
+.feedTitleConnect {
+  background-color: white;
+  color: rgb(11, 101, 194);
+}
+
+.feedTitleIn {
   color: white;
   background-color: rgb(11, 101, 194);
   border-radius: 4px;
-  text-decoration: none;
-    /* margin-right:; */
-    margin-left: 150px;
-
+  width: 28px;
+    padding-top: 3px;
+      padding-bottom: 3px;
+      padding-right: 3px;
+      padding-left: 3px;
 }
 
 .FeedProfileButtonWrapper {

@@ -30,7 +30,7 @@ export default function ExperienceModal({className, experience}) {
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
   const createVisible = !!useSelector(state => state.modals.addExperience);
-  console.log(createVisible)
+  // console.log(createVisible)
   // console.log("Initialized State:", { title, companyName, industry, location, description, startDate, endDate });
 
   // const editVisible = useSelector(state => state.modals.editExperience);
@@ -74,7 +74,7 @@ export default function ExperienceModal({className, experience}) {
       location,
       description,
       startDate,
-      endDate,
+      endDate: endDate || "",
     };
     return dispatch(createExperience(experience))
       .then(() => {

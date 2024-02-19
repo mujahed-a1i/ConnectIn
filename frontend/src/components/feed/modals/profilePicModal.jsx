@@ -4,6 +4,7 @@ import * as modalActions from "../../../store/reducers/modals";
 import { useDispatch, useSelector} from "react-redux";
 import { useState } from "react";
 import * as userActions from "../../../store/reducers/users"
+import closeIcon from "../../assests/icons/closeIcon.svg"
 
 export default function ProfilePicModal() {
   const currentUser = useSelector(state => state.session.user)
@@ -42,7 +43,8 @@ export default function ProfilePicModal() {
     <div className="profilePicModalContainer">
       <div className="profilePicModalTitleWrapper">
         <h1 className="profilePicModalTitle">Add Photo</h1>
-        <button className="profilePicCloseModalButton" onClick={handleCloseModal}>close</button>
+        <img src={closeIcon} alt="close" className="profilePicCloseModalButton" onClick={handleCloseModal}/>
+
       </div>
       <hr className="profilPicModalHR"/>
       <h2 className="headshotSlogan">No professional headshot needed <br />

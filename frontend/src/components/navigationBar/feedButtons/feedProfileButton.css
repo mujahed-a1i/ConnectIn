@@ -101,7 +101,7 @@
 
 .userProfileButton:hover {
   background-color: lightblue;
-
+  cursor: pointer;
 }
 
  
@@ -128,8 +128,15 @@
   height: 40px;
   width: 40px;
 }
+.dDownMyLinksIcons:hover {
+  cursor: pointer;
+}
 .dDownMyLinksIcons2 {
 
   height: 40px;
   width: 40px;
+}
+
+.dDownMyLinksIcons2:hover {
+  cursor: pointer;
 }

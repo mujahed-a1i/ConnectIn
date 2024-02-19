@@ -19,7 +19,7 @@
 }
 
 .profilePicModalWrapper {
-  /* position: absolute; */
+  position: fi;
   top: 0px;
   left: 0px;
   background-color: rgba(219, 219, 219, 0.843);
@@ -31,7 +31,7 @@
 }
 
 .experienceModalWrapper {
-  position: relative;
+  position: fixed;
   background-color: rgba(219, 219, 219, 0.843);
   width: 100vw;
   height: 100vh;
@@ -39,8 +39,9 @@
 
 }
 
+
 .profileBannerPicModalWrapper {
-  /* position: absolute; */
+  position: fixed;
   top: 0%;
   left: 0%;
   background-color: rgba(219, 219, 219, 0.843);
@@ -110,4 +111,6 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-
+.profileExperienceIndex {
+  margin-top: 30px;
+}

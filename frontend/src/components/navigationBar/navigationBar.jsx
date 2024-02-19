@@ -35,7 +35,7 @@ export default function NavigationBar() {
   if (currentUser) {
     return (
       <nav className='feedNavBar'>
-        <Link className="feedTitle" to="/feed" > in </Link>
+        <Link className="feedTitle" to="/feed" ><span className='feedTitleConnect'>Connect</span><span className='feedTitleIn'>in</span> </Link>
 
 
         <div className ='feedNavButtons'>

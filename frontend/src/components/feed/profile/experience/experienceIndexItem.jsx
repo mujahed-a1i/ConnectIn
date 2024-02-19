@@ -64,7 +64,8 @@ export default function ExperienceIndexItem({experience, className}){
 
   const startDate = `${startMonthInWords} ${startYear}`; 
   const endDate = `${endMonthInWords} ${endYear}`; 
-
+  // console.log(experience.endDate)
+  // console.log(endDate)
 
   if (className === "profileExperienceIndexItem") {
     return (
@@ -80,14 +81,14 @@ export default function ExperienceIndexItem({experience, className}){
 
           <p className="profileExperienceTitle">{experience.title}</p>
           <p className="profileExperienceCompanyName">{experience.companyName}</p>
-          {(!!experience.endDate === true) &&
+          {(experience?.endDate) &&
             <p className="profileExperienceDates">
-              {`${startDate} to ${endDate} · ${diff} mos`}
+              {`${startDate} - ${endDate} · ${diff} mos`}
             </p>
           }
-          {(!!experience.endDate === false) &&
+          {(experience?.endDate === null) &&
             <p className="profileExperienceDates">
-              {`${startDate} to ${endDate}`}
+              {`${startDate} - Present`}
             </p>
           }
         </div>

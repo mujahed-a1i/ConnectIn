@@ -3,6 +3,7 @@ import * as modalActions from "../../../store/reducers/modals";
 import { useDispatch, useSelector} from "react-redux";
 import { useState } from "react";
 import * as userActions from "../../../store/reducers/users"
+import closeIcon from "../../assests/icons/closeIcon.svg"
 
 export default function ProfileBannerModal() {
   const currentUser = useSelector(state => state.session.user)
@@ -41,11 +42,11 @@ export default function ProfileBannerModal() {
     <div className="profileBannerPicModalContainer">
       <div className="profileBannerPicModalTitleWrapper">
         <h1 className="profileBannerPicModalTitle">Add a Background</h1>
-        <button className="profileBannerPicCloseModalButton" onClick={handleCloseModal}>close</button>
+        <img src={closeIcon} alt="close" className="profileBannerPicCloseModalButton" onClick={handleCloseModal}/>
       </div>
       <hr className="profileBannerPicModalHR"/>
       <h2 className="headshotSlogan">Upload a photo <br/>
-Showcase your personality, interests, work, or team moments
+        Showcase your personality, interests, work, or team moments
       </h2>
       
       {/* <img className="profilePicModalPicture" src={profilePicModalPicture} alt="" height="104" width="438"/> */}

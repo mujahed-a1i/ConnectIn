@@ -89,6 +89,7 @@ function LoginForm() {
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
+            className="loginInput"
           />
         </label>
       </div>
@@ -101,6 +102,7 @@ function LoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            className="loginInput"
           />
           <button className="passwordHidden" onClick={handleShowPassword}>{visible? "Hide": "Show"}</button>
           

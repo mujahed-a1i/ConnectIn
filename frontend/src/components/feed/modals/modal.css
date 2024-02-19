@@ -55,6 +55,19 @@
   position: absolute;
   bottom: 20px;
   right: 30px;
+  background-color: #0B65C2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.feedModalPostButton:hover {
+  background-color: #074078;
+}
+
+.feedModalPostButton:disabled {
+  background-color: #E8E8E8;
+  color: #A2A2A2;
 }
 
 .feedCloseButton {

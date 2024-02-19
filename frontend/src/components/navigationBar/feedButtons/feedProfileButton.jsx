@@ -91,8 +91,9 @@ export default function FeedProfileButton() {
               </button>
             </div>
    
-            <div>
+            <div className="mylinksWrapper">
               <img src={githubIcon} className="dDownMyLinksIcons2"alt="" onClick={handleToGithub} />
+  
               <img src={linkedinIcon} className="dDownMyLinksIcons" alt=""onClick={handleToLinkedIN} />
             </div>
             

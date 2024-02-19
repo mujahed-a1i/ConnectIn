@@ -119,12 +119,17 @@
   text-decoration: underline;
 }
 
+.mylinksWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .dDownMyLinksIcons {
-  height: 20px;
-  width: 20px;
+  height: 40px;
+  width: 40px;
 }
 .dDownMyLinksIcons2 {
 
-  height: 20px;
-  width: 20px;
+  height: 40px;
+  width: 40px;
 }

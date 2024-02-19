@@ -59,17 +59,14 @@ export default function PostIndexItem({post}) {
   
     return (
       <>
-        {modalVisible && <div className='editModalWrapper'>
-          {<EditModal post={post} visible={visible} setVisible={setVisible}/> }
-        </div> }
+                {modalVisible && <div className='editModalWrapper'>
+            {<EditModal post={post} visible={visible} setVisible={setVisible}/> }
+          </div> }
         <div className="postWrapper">
-          
+  
           {visible && <div className="postSettingsDropDownWrapper">
             <PostSettingsDropDown post={post} visible={visible} setVisible={setVisible} />
           </div>}
-        
-
-        
           <div className="feedPostUserInfo2">
             <img className="feedUserIcon" src={user && user.profilePic ? user.profilePic : userIcon} 
               alt="User Post Icon" width="48" height="48"

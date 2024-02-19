@@ -2,12 +2,13 @@
   min-height: 50px;
   background-color: rgb(244, 242, 238);
   width: 100vw;
+  /* overflow: auto; */
 }
 
 .feedCreatePostBoxWrapper {
   position: relative;
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 10px;
 
 }
 .feedNavigationWrapper {
@@ -22,9 +23,15 @@
 }
 .createPostBoxModal {
   background-color: rgb(98, 97, 96, .3);
-  position: absolute;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  /* position: relative; */
+  /* margin-top: 200px; */
+  /* margin-left: 50%;
+  transform: translateX(-50%); */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
   z-index: 1;
@@ -37,12 +44,66 @@
 }
 
 .postCRUDWrapper {
+  position: absolute;
+  top: 50px;
+  display: flex;
+  /* flex-direction: row; */
+  min-height: 200px;
+  width: 100vw;
+
+  background-color: rgb(244, 242, 238);
+  /* position: relative; */
+  
+  margin-left: 50%;
+  transform: translateX(-50%);
+  
+}
+
+.feedPageConatiner {
+  display: flex;
+  position: relative;
+  /* margin-top: 10px; */
+  left: 45%;
+  transform: translateX(-50%);
+
+}
+
+.feedUserInfoWrapper {
+  margin-top: 20px;
+  margin-right: 20px;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: 200px;
-  align-items: center;
-  background-color: rgb(244, 242, 238);
+  background-color: white;
+  max-height: 200px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 
+}
+
+.userFeedBanner {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.userFeedPPic {
+  position: relative;
+  bottom: 30px;
+  border-style: solid;
+  border-color: white;
+  border-width: 3px;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  /* left: 30%; */
+}
+
+.userFeedPPic:hover + .feedUserInfoContainer .feedUserFullName {
+  text-decoration: underline;
+}
+
+.feedUserFullName:hover {
+  text-decoration: underline;
 }
 
 
@@ -53,6 +114,23 @@
   width: 400px; */
   background-color: red;
 }
+
+.feedUserInfoContainer {
+  position: relative;
+  bottom: 20px;
+}
+
+.feedUserInfoContainer p {
+  /* text-align: center; */
+  font-family: system-ui;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.feedUserFullName {
+  cursor: pointer;
+}
+
 
 .feedPostDescription {
   margin-top: 10px;

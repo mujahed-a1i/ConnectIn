@@ -126,13 +126,16 @@
 
 .editModalWrapper {
   position: relative;
-  /* bottom: 500px; */
-  
-  top: -20px;
-  right: 100px;
-  /* bottom: 50px; */
-  z-index: 1000;
+    /* bottom: 500px; */
+    
+    top: -120px;
+    left: -100px;
+
+
+
+  z-index: 2;
   background-color: red;
+
 }
 
 

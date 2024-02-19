@@ -10,7 +10,7 @@
 .profileExperienceTitle {
   font-family: system-ui;
   font-size: 16px;
-  font-weight: 600px;
+  font-weight: 600;
 }
 
 .profileExperienceDates {
@@ -25,20 +25,21 @@
   margin-top: 1000px;
 } */
 
+
 .profileExperienceIndexItem {
-  /* max-height: 150px; */
-  /* height: 77px; */
-  /* margin-bottom: 10px; */
-  /* margin-top: 0px; */
-  /* overflow: hidden; */
-  /* position: relative; */
+
 }
+
+.experienceInfoWrapper {
+  position: relative;
+
+}
+
 
 .experienceCRUDDots {
   position: relative;
   /* z-index: 2; */
   /* position: absolute; */
-  margin-top: 0px;
   width: 20px;
   height: 20px;
   top: 20px;
@@ -46,18 +47,17 @@
 }
 
 .experienceDropDownWrapper {
-  /* position: absolute; */
+  position: absolute;
   padding: 10px;
   z-index: 2;
   background-color: white;
-  position: relative;
   border-style: solid;
   border-color: rgb(210, 210, 210);
   border-width: 1px;
   border-radius: 10px;
   max-height: 100px;
   max-width: 120px;
-  margin-top: 0px;
-  top: 150px;
-  left: 580px;
+
+  top: 45px;
+  left: 600px;
 }

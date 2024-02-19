@@ -57,9 +57,9 @@ function SignUpForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <ul>
+      <ul className="signUpErrorsWrapper">
         {errors.map((error, index) => (
-          <li key={index}>{error.message || error}</li>
+          <li className="signUpErrors"key={index}>{error.message || error}</li>
         ))}
       </ul>
       

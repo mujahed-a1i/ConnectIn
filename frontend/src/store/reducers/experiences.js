@@ -36,6 +36,14 @@ export const fetchAllExperiences = (userId) => async dispatch => {
   return response;
 };
 
+export const fetchUserExperience = () => async dispatch => {
+
+  const response = await csrfFetch(`/api/session`);
+  const {experiences} = await response.json();
+  dispatch(receiveExperiences(experiences));
+  return response;
+};
+
 
 export const createExperience = (newExperience) => async dispatch => {
   const response = await csrfFetch("/api/experiences", {

@@ -11,12 +11,16 @@ import {useParams } from 'react-router-dom';
 
 
 
+
+
 export default function PostIndex() {
   // const [visible, setVisible] = useState(false);
   // const type = useSelector(state => state.modals.editModal);
   const params = useParams();
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
+
+
  
   useEffect(() => {
     dispatch(fetchAllPosts());
@@ -27,10 +31,9 @@ export default function PostIndex() {
       <div className="feedPostIndexWrapper">
         {Object.values(posts).reverse().map((post) => (
           
-          
+         
           <div key={post.id}>
-            
-            
+  
             <PostIndexItem post={post} />
           </div>
         ))}

@@ -12,6 +12,8 @@ import ExperienceModal from "../../modals/experienceModal";
 import "./experienceIndex.css";
 export default function ExperienceIndex({experiences, className}){
   const dispatch = useDispatch();
+  
+
   // const experiences = useSelector(state => state.experiences);
   // console.log(experiences)
   const handleShowAddExperienceModal = (e) => {

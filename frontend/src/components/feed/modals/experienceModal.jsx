@@ -29,7 +29,8 @@ export default function ExperienceModal({className, experience}) {
   const [endDate, setEndDate] = useState(currentExp?.endDate || '');
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
-  const createVisible = useSelector(state => state.modals.addExperience);
+  const createVisible = !!useSelector(state => state.modals.addExperience);
+  console.log(createVisible)
   // console.log("Initialized State:", { title, companyName, industry, location, description, startDate, endDate });
 
   // const editVisible = useSelector(state => state.modals.editExperience);
@@ -38,8 +39,8 @@ export default function ExperienceModal({className, experience}) {
 
   const handleCloseExperienceModal = (e) => {
     e.preventDefault();
-    // dispatch(modalActions.hideModal("addExperience"));
-    dispatch(modalActions.hideModal(currentExp?.id));
+    dispatch(modalActions.hideModal("addExperience"));
+    // dispatch(modalActions.hideModal(currentExp?.id));
     setErrors([]);
     setTitle("");  
     setCompanyName("");
@@ -169,7 +170,7 @@ export default function ExperienceModal({className, experience}) {
 
 
 
-  if (className === "experienceModalWrapper" && experience)
+  if (className === "experienceModalWrapper" )
     return (
 
       createVisible && 

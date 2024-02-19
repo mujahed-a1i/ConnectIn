@@ -1,9 +1,9 @@
 import "./experienceIndexItem.css";
 import editDots from "../../../assests/icons/3dots.png";
 import { useState } from "react";
-import {useSelector} from "react-redux"
+import {useSelector} from "react-redux";
 import ExperienceDropDown from "./experienceDropDown";
-import ExperienceModal from "../../modals/experienceModal"
+import ExperienceModal from "../../modals/experienceModal";
 
 
 const monthNames = [
@@ -69,14 +69,14 @@ export default function ExperienceIndexItem({experience, className}){
   if (className === "profileExperienceIndexItem") {
     return (
       <div className={className}>
+        
         {editVisible && <ExperienceModal className="editExpModalWrapper" experience={experience}/>}
-        {visible && <div className="experienceDropDownWrapper">
-          <ExperienceDropDown experience={experience} visible={visible} setVisible={setVisible} />
-        </div>}
-        {canEdit && <img src={editDots} className="experienceCRUDDots" alt="dots" onClick={handleExperienceDropDown} />}
 
         <div className="experienceInfoWrapper">
-
+          {visible && <div className="experienceDropDownWrapper">
+            <ExperienceDropDown experience={experience} visible={visible} setVisible={setVisible} />
+          </div>}
+          {canEdit && <img src={editDots} className="experienceCRUDDots" alt="dots" onClick={handleExperienceDropDown} />}
 
           <p className="profileExperienceTitle">{experience.title}</p>
           <p className="profileExperienceCompanyName">{experience.companyName}</p>

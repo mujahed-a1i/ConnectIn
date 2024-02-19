@@ -28,27 +28,27 @@ export default function EditModal({post, visible, setVisible}) {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const dropdownWrapper = document.querySelector(".feedEditPostModal");
+      const modal = document.querySelector(".feedEditPostModal");
 
-      if (dropdownWrapper && !dropdownWrapper.contains(event.target)) {
-        dispatch(modalsAction.hideModal());
+      if (modal && !modal.contains(event.target)) {
+        dispatch(modalsAction.hideModal(post.id));
       }
     };
 
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
-        dispatch(modalsAction.hideModal("editModal"));
+        dispatch(modalsAction.hideModal(post.id));
         setVisible(false);
       }
     };
-    // document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscapeKey);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
     };
-  }, [dispatch, visible, setVisible]);
+  }, [dispatch, visible, setVisible, post.id]);
 
 
   const handleSubmitPost = (e) => {

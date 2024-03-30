@@ -43,5 +43,3 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 plugin :tmp_restart
 
 
-# persistent_timeout prevents host site spindown
-persistent_timeout 900 # 900 secs = 15 mins

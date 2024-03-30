@@ -105,4 +105,4 @@ In the feed page, a user is able to create a post, that is limited to 3000 chara
 ```
 
 # Future Implementation 
-In the future I would like to add delete, edit and update functionality to the experiences. I would also would like users to be able to connect with one and another through connections. Additionally, I aim to introduce instant messaging capabilities
+In the future I would also would like users to be able to connect with one and another through connections. Additionally, I aim to introduce instant messaging capabilities. I also want users to be able to comment and like each other's posts. 

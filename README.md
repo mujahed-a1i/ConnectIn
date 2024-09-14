@@ -13,7 +13,7 @@ LinkedIn is a social media platform dedicated to business and professional netwo
  
 # Features
 
-## User Authentication
+## User Authentication 
 Users can effortlessly create accounts through the signup page or log in if they already have an existing account.
 
 ## Profiles

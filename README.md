@@ -10,7 +10,7 @@ LinkedIn is a social media platform dedicated to business and professional netwo
   - Database: PostgreSQL 
   - Hosting: Render    
   - Asset Storage: AWS Simple Cloud Storage (S3)  
- 
+   
 # Features
 
 ## User Authentication 

@@ -9,7 +9,7 @@ LinkedIn is a social media platform dedicated to business and professional netwo
   - Backend: Ruby On Rails     
   - Database: PostgreSQL 
   - Hosting: Render    
-  - Asset Storage: AWS Simple Cloud Storage (S3) 
+  - Asset Storage: AWS Simple Cloud Storage (S3)  
  
 # Features
 

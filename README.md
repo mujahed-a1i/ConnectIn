@@ -7,7 +7,7 @@ LinkedIn is a social media platform dedicated to business and professional netwo
   - Languages: Javascript, Ruby, HTML, and CSS    
   - Frontend: React-Redux          
   - Backend: Ruby On Rails     
-  - Database: PostgreSQL 
+  - Database: PostgreSQL   
   - Hosting: Render      
   - Asset Storage: AWS Simple Cloud Storage (S3)  
    

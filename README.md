@@ -12,7 +12,7 @@ LinkedIn is a social media platform dedicated to business and professional netwo
   - Asset Storage: AWS Simple Cloud Storage (S3)  
    
 # Features
-
+  
 ## User Authentication 
 Users can effortlessly create accounts through the signup page or log in if they already have an existing account.
 

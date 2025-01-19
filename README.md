@@ -5,7 +5,7 @@
 ConnectIn is a clone of the website Linkedin.           
 LinkedIn is a social media platform dedicated to business and professional networking, accessible through both websites and mobile applications. Users can create detailed pro  files, highlighting their skills, experience, and projects, showcasing their technical expertise. Linkedin allows users to connect one another throught sending and ac cpeting connection requests.    
   - Languages: Javascript, Ruby, HTML, and CSS       
-  - Frontend: React-Redux              
+  - Frontend: React-Redux               
   - Backend: Ruby On Rails       
   - Database: PostgreSQL      
   - Hosting: Render       
